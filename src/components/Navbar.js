@@ -2,11 +2,11 @@ import React from "react";
 /* We are utilizing bootstrap for */
 function Navbar() {
   return (
-    <div>
+    
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            HOTEL AGAPE PRIME
+            AGAPE PRIME HOTEL-TELA
           </a>
           <button
             class="navbar-toggler"
@@ -23,29 +23,29 @@ function Navbar() {
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">
-                  Home
+                  Booking
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Features
+                <a class="nav-link" href="/register">
+                 Register
+                </a>
+                <li class="nav-item">
+                <a class="nav-link" href="/login">
+                 Login
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                 Booking
-                </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">
                   Disabled
-                </a>
+                </a> 
               </li>
             </ul>
           </div>
         </div>
       </nav>
-    </div>
+    
   );
 }
 
