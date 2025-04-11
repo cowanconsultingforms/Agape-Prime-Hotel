@@ -4,6 +4,8 @@ import { db } from "../firebase";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import LoginSignup from "../components/LoginSignup";
+
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -51,52 +53,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded shadow mt-10">
-      <h2 className="text-2xl font-bold mb-6 text-center">Create an Account</h2>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          id="name"
-          placeholder="Full Name"
-          value={name}
-          onChange={onChange}
-          className="w-full mb-4 p-2 border rounded"
-          required
-        />
-        <input
-          type="email"
-          id="email"
-          placeholder="Email"
-          value={email}
-          onChange={onChange}
-          className="w-full mb-4 p-2 border rounded"
-          required
-        />
-        <div className="relative mb-4">
-          <input
-            type={showPassword ? "text" : "password"}
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={onChange}
-            className="w-full p-2 border rounded"
-            required
-          />
-          <span
-            onClick={() => setShowPassword((prev) => !prev)}
-            className="absolute right-3 top-2 cursor-pointer"
-          >
-            {showPassword ? "🙈" : "👁️"}
-          </span>
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
-        >
-          Sign Up
-        </button>
-      </form>
-    </div>
+  <LoginSignup/>
   );
 };
 
