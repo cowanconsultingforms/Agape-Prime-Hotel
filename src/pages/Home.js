@@ -1,5 +1,6 @@
 import React from 'react';
 import telaImage from '../assets/images/tela-background.jpg';
+import Button from 'react-bootstrap/Button';
 
 export default function Home() {
   return (
@@ -19,7 +20,9 @@ export default function Home() {
     >
       <h1>Welcome to Hotel Agape Prime 🌅</h1>
       <h2>Experience Paradise in Tela, Honduras </h2>
-      <a href="#booking"><button>Book Now</button> </a>
+      <a href="#booking"> <Button variant="light" size="lg" active>
+        Book Now
+      </Button> </a>
     </div>
   );
 }

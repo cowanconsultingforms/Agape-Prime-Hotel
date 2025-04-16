@@ -4,10 +4,7 @@ import RoomCard from '../components/RoomCard'
 const Rooms = () => {
   return (
     <div>
-     <div className="descriptionContainer">
-      
-     </div>
-
+    <RoomCard></RoomCard>
     </div>
   )
 }

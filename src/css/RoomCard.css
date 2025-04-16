@@ -1,0 +1,111 @@
+.section-title {
+    color: #4B0082;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    
+  }
+  
+  .section-description {
+    margin-bottom: 2rem;
+    max-width: 800px;
+
+  }
+  
+  .villa-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .villa-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .villa-image-container {
+    position: relative;
+  }
+  
+  .villa-image {
+    height: 240px;
+    object-fit: cover;
+    height: 1920px; 
+  }
+  
+  .price-tag {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #4B0082;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  
+  .price-tag span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+  
+  .villa-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .villa-subtitle {
+    margin-bottom: 10px;
+  }
+  
+  .villa-quick-stats {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .villa-quick-stats span {
+    margin: 0 5px;
+  }
+  
+  .amenities-title {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #4B0082;
+  }
+  
+  .amenities-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+  
+  .amenity-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .amenity-icon {
+    color: #4B0082;
+    margin-right: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .booking-btn {
+    background-color: #4B0082;
+    border-color: #4B0082;
+  }
+  
+  .details-btn:hover, .booking-btn:hover {
+    transform: translateY(-2px);
+  }
