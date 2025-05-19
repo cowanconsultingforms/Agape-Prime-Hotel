@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../firebase"; 
 import { db } from "../firebase";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +27,6 @@ const SignUp = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const auth = getAuth();
 
     try {
       if (action === "Sign Up") {
