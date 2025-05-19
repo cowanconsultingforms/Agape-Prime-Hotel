@@ -29,6 +29,9 @@ function Navbar() {
         <li className="nav-item">
           <Link className="nav-link" to="https://www.agapeprimehotel.com/WP/contact/">Contact</Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="https://www.agapeprimehotel.com/WP/contact/">Wellness</Link>
+        </li>
         <li className="nav-item dropdown">
           <span className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Account

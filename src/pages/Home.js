@@ -1,34 +1,35 @@
 import React from 'react';
-import telaImage from '../assets/images/tela-background.jpg';
+import sunsetVideo from '../assets/images/videos/sunsetbluedark.mp4'; // ✅ adjust based on your actual path
 import Button from 'react-bootstrap/Button';
-import Footer from '../components/Footer';
+import Box from '@mui/joy/Box';
+import RoomCard from '../components/RoomCard';
 
 export default function Home() {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${telaImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        textShadow: '0 0 10px black',
-      }}
-    >
-      <h1>Welcome to Hotel Agape Prime 🌅</h1>
-      <h2>Experience Paradise in Tela, Honduras </h2>
-      <a href="#booking"> <Button variant="light" size="lg" active>
-        Book Now
-      </Button> </a>
+    <div style={{ position: "relative", overflow: "hidden" }}>
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          minWidth: "100%",
+          minHeight: "100%",
+          objectFit: "cover",
+          zIndex: -1
+        }}
+      >
+        <source src={sunsetVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-    
+    <RoomCard></RoomCard>
+
+      
       
     </div>
-
-   
   );
 }

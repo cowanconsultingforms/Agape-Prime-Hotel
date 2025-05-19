@@ -8,14 +8,15 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_MEASUREMENT_ID
-};
+    apiKey: "AIzaSyD_qL01gmxzzfCiNO3eF4XifcsEhQMqCvs",
+    authDomain: "agape-prime-hotel.firebaseapp.com",
+    projectId: "agape-prime-hotel",
+    storageBucket: "agape-prime-hotel.firebasestorage.app",
+    messagingSenderId: "319941503191",
+    appId: "1:319941503191:web:8033187fc48318af492892",
+    measurementId: "G-VN5Z4REXZ7"
+  };
+  
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
