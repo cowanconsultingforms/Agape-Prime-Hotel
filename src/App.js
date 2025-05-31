@@ -3,8 +3,9 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import SignUp from "./pages/SignUp";
-import 'react-toastify/dist/ReactToastify.css';
+import Booking from "./pages/BookingTemp"; // ✅ Correct casing
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -13,15 +14,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
-
         <Route path="/sign-up" element={<SignUp />} />
-        {/* Add more routes as needed */}
+        <Route path="/booking" element={<Booking />} /> {/* ✅ Use Booking with capital B */}
       </Routes>
+      <ToastContainer />
     </Router>
-
-
   );
 }
 
-<ToastContainer />
 export default App;

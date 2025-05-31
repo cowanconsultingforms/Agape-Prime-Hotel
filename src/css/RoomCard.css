@@ -8,7 +8,6 @@
   .section-description {
     margin-bottom: 2rem;
     max-width: 800px;
-
   }
   
   .villa-card {
@@ -23,13 +22,20 @@
   }
   
   .villa-image-container {
-    position: relative;
+    width: 100%;
+  height: 240px; /* Fixed height for uniformity */
+  min-height: 240px;
+  max-height: 240px;
+  overflow: hidden;
+  position: relative;
   }
   
   .villa-image {
-    height: 240px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    height: 1920px; 
+    display: block;
+     
   }
   
   .price-tag {
