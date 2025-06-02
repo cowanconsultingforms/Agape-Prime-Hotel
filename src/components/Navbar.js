@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-sm bg-light navbar-light">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="/">HOTEL AGAPE PRIME</Link>
+    <Link className="navbar-brand" to="/">HOTEL AGAPE PRIME RESERVATIONS</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
