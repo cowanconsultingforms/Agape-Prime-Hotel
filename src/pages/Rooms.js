@@ -5,7 +5,7 @@ import sunsetVideo from '../assets/images/videos/sunsetbluedark.mp4';
 
 const Rooms = () => {
   return (
-    <div style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+    <div style={{ position: "relative", overflowX: "hidden"}}>
     <video
       autoPlay
       muted

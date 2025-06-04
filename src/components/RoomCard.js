@@ -1,19 +1,15 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Card, CardContent, CardMedia, Typography, Button, Grid, Box } from '@mui/material';
 import { FaSwimmingPool, FaUmbrellaBeach, FaBell, FaCoffee, FaShower } from 'react-icons/fa';
 
-
-//TO DO: add unique villa images for each of the 
-
-//imports of all villa images
+// Image imports
 import sunsetPalmsImg from '../assets/images/villa-images/sunset-palms-villa.jpg';
 import carribeanBreezeImg from '../assets/images/villa-images/carribean-breeze-villa.jpg';
 import oceanBreezeImg from '../assets/images/villa-images/ocean-breeze-villa.webp';
-import blueHorizonImg from '../assets/images/villa-images/blue-horizon-villa.jpg'; 
+import blueHorizonImg from '../assets/images/villa-images/blue-horizon-villa.jpg';
 
+
+//TO DO: add unique villa images for each of the 
 
 const RoomCard = () => {
 
@@ -167,56 +163,84 @@ const RoomCard = () => {
       
 
   return (
-    
-    <div className="room-cards-container">
-      <h2 className="section-title text-center">Our Luxury Villas</h2>
-      <p className="section-description text-center">
-        Experience the ultimate in Caribbean luxury with our exclusive collection of villas, 
-        each offering a unique blend of comfort, privacy, and stunning views of Tela's pristine coastline.
-      </p> 
-      
-      <Row className="g-4 mt-3">
-        {villas.map(villa => (
-          <Col key={villa.id} lg={3} className="mb-4">
-            <Card className="h-100 villa-card">
-              <div className="villa-image-container">
-                <Card.Img variant="top" src={villa.image} alt={villa.name} className="villa-image" />
-                <div className="price-tag">{villa.price}<span>/night</span></div>
-              </div>
-              <Card.Body>
-                <Card.Title className="villa-title">{villa.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted villa-subtitle">{villa.subtitle}</Card.Subtitle>
-                
-                <div className="villa-quick-stats">
-                  <span>{villa.size}</span> • 
-                  <span>{villa.maxOccupancy}</span> • 
-                  <span>{villa.bedConfig}</span>
-                </div>
-                
-                <Card.Text className="villa-description">
-                  {villa.description}
-                </Card.Text>
-                
-                <h6 className="amenities-title">Villa Amenities</h6>
-                <ul className="amenities-list">
-                  {villa.amenities.map((amenity, index) => (
-                    <li key={index} className="amenity-item">
-                      <span className="amenity-icon">{amenity.icon}</span>
-                      <span className="amenity-text">{amenity.text}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="card-actions">
-                  <Button variant="outline-secondary" className="details-btn">View Details</Button>
-             <Button href="#booking" variant="primary" className="booking-btn">Book Now</Button>
-                </div>
-              </Card.Body>
+   <Box sx={{ padding: 4 }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Our Luxury Villas
+      </Typography>
+      <Typography variant="subtitle1" align="center" color="text.secondary">
+        Experience the ultimate in Caribbean luxury with our exclusive collection of villas...
+      </Typography>
+
+      <Grid container spacing={4} mt={2}>
+        {villas.map((villa) => (
+          <Grid item key={villa.id} xs={12} sm={6} md={4} lg={3}>
+            <Card sx={{
+    height: 540, // fixed height for consistent rows
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+}}>
+              <Box sx={{ position: 'relative' }}>
+                <CardMedia
+                  component="img"
+                  image={villa.image}
+                  alt={villa.name}
+                  sx={{ height: 200, objectFit: 'cover' }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 8,
+                    right: 8,
+                    backgroundColor: 'primary.main',
+                    color: '#fff',
+                    px: 1.5,
+                    py: 0.5,
+                    borderRadius: 1,
+                    fontWeight: 'bold',
+                    fontSize: '0.9rem',
+                  }}
+                >
+                  {villa.price}<span style={{ fontWeight: 300 }}>/night</span>
+                </Box>
+              </Box>
+
+              <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <Typography variant="h6">{villa.name}</Typography>
+                <Typography variant="subtitle2" color="text.secondary">
+                  {villa.subtitle}
+                </Typography>
+
+                <Box sx={{ mt: 1, fontSize: '0.9rem', color: 'text.secondary' }}>
+                  {villa.size} • {villa.maxOccupancy} • {villa.bedConfig}
+                </Box>
+
+                {/* Amenities */}
+                <Box sx={{ mt: 2 }}>
+                  <Typography variant="subtitle2" fontWeight="bold">
+                    Villa Amenities
+                  </Typography>
+                  <ul style={{ paddingLeft: '1.2em', margin: 0 }}>
+                    {villa.amenities.map((amenity, index) => (
+                      <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: 4 }}>
+                        <span style={{ marginRight: 6 }}>{amenity.icon}</span>
+                        <Typography variant="body2">{amenity.text}</Typography>
+                      </li>
+                    ))}
+                  </ul>
+                </Box>
+
+                {/* Actions */}
+                <Box sx={{ mt: 'auto', display: 'flex', justifyContent: 'space-between' }}>
+                  <Button variant="outlined" size="small">View Details</Button>
+                  <Button variant="contained" size="small" href="#booking">Book Now</Button>
+                </Box>
+              </CardContent>
             </Card>
-          </Col>
+          </Grid>
         ))}
-      </Row>
-    </div>
+      </Grid>
+    </Box>
   );
 };
 
