@@ -1,14 +1,20 @@
 import React from 'react';
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography
+} from '@mui/material';
+import Box from '@mui/material/Box'; // Prefer MUI's Box for consistency
 import sunsetVideo from '../assets/images/videos/sunsetbluedark.mp4';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, Grid } from '@mui/material';
-import Box from '@mui/joy/Box';
-import RoomCard from '../components/RoomCard';
 import roomCardImg from '../assets/images/roomcardimg.jpg';
-import wellnessCenterImg from '../assets/images/wellnesscenter.jpg'; 
+import wellnessCenterImg from '../assets/images/wellnesscenter.jpg';
 import pbPavilionImg from '../assets/images/pbpavilionbar.jpg';
+
+
 export default function Home() {
   return (
-    <div style={{ position: "relative", overflowX: "hidden", height: "100vh" }}>
+    <div style={{ position: "relative", overflowX: "hidden" }}>
       <video
         autoPlay
         muted
