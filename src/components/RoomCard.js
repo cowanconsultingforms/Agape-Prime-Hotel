@@ -9,7 +9,7 @@ import oceanBreezeImg from '../assets/images/villa-images/ocean-breeze-villa.web
 import blueHorizonImg from '../assets/images/villa-images/blue-horizon-villa.jpg';
 
 
-//TO DO: add unique villa images for each of the 
+//TO DO: add unique villa images for each card
 
 const RoomCard = () => {
 

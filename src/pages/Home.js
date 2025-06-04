@@ -1,12 +1,14 @@
 import React from 'react';
 import sunsetVideo from '../assets/images/videos/sunsetbluedark.mp4';
-import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
+import { Card, CardActionArea, CardMedia, CardContent, Typography, Grid } from '@mui/material';
 import Box from '@mui/joy/Box';
 import RoomCard from '../components/RoomCard';
-
+import roomCardImg from '../assets/images/roomcardimg.jpg';
+import wellnessCenterImg from '../assets/images/wellnesscenter.jpg'; 
+import pbPavilionImg from '../assets/images/pbpavilionbar.jpg';
 export default function Home() {
   return (
-    <div style={{ position: "relative", overflow: "hidden" }}>
+    <div style={{ position: "relative", overflowX: "hidden", height: "100vh" }}>
       <video
         autoPlay
         muted
@@ -25,29 +27,45 @@ export default function Home() {
         <source src={sunsetVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-
-         <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+<Box
+  sx={{
+    position: 'relative',
+    zIndex: 1,
+    height: '100vh', // full screen height
+    display: 'flex',
+    alignItems: 'center', // vertical center
+    justifyContent: 'center', // horizontal center
+  }}
+>
+  <Box
+    sx={{
+      display: 'flex',
+      gap: 4,
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    }}
+  >
+    {[ 
+      { img: roomCardImg, label: 'Reserve a Suite/Villa' },
+      { img: wellnessCenterImg, label: 'Reserve Wellness Center' },
+      { img: pbPavilionImg, label: 'Reserve PB Pavilion' }
+    ].map((item, index) => (
+      <Card key={index} sx={{ minWidth: 300, maxWidth: 350, position: 'relative', color: 'white' }}>
         <CardMedia
           component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          image={item.img}
+          height="300"
+          sx={{ filter: 'brightness(0.7)' }}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
+        <CardContent sx={{ position: 'absolute', bottom: 16, width: '100%' }}>
+          <Typography variant="h6" align="center">{item.label}</Typography>
         </CardContent>
-      </CardActionArea>
-    </Card>
+      </Card>
+    ))}
+  </Box>
+</Box>
 
-      
-      
+    
     </div>
   );
 }
