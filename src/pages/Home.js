@@ -10,8 +10,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'; // <-- Add this
 
 // Assets
-import sunsetVideo from '../assets/images/videos/sunsetbluedark.mp4';
-import roomCardImg from '../assets/images/roomcardimg.jpg';
+import roomCardImg from '../assets/images/villas-suites-bubble.jpg';
 import wellnessCenterImg from '../assets/images/wellnesscenter.jpg'; 
 import pbPavilionImg from '../assets/images/pbpavilionbar.jpg';
 export default function Home() {
@@ -38,7 +37,7 @@ export default function Home() {
           zIndex: -1
         }}
       >
-        <source src={sunsetVideo} type="video/mp4" />
+        <source src="/videos/sunsetbluedark.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

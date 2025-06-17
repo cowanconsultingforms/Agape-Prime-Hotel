@@ -163,7 +163,7 @@ const villas = [
 const RoomCard = () => (
   <Box sx={{ padding: 4 }}>
     <Typography variant="h4" align="center" gutterBottom>
-      Our Luxury Villas
+      Villas
     </Typography>
     <Typography variant="subtitle1" align="center" color="text.secondary">
       Experience the ultimate in Caribbean luxury with our exclusive collection of villas...

@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Wellness = () => {
+
+
+const PBPavilion = () => {
   return (
-    <div style={{ position: "relative", height: "100vh", overflowX: "hidden"}}>
+     <div style={{ position: "relative", height: "100vh", overflowX: "hidden"}}>
       <video
         autoPlay
         muted
@@ -22,7 +24,8 @@ const Wellness = () => {
         Your browser does not support the video tag.
       </video>
     </div>
+   
   );
 };
 
-export default Wellness;
+export default PBPavilion;
