@@ -4,7 +4,7 @@ import React from 'react';
 
 const PBPavilion = () => {
   return (
-     <div style={{ position: "relative", height: "100vh", overflowX: "hidden"}}>
+       <div style={{ position: "relative", height: "100vh", overflowX: "hidden"}}>
       <video
         autoPlay
         muted

@@ -16,13 +16,13 @@ function Navbar() {
           <Link className="nav-link" to="/rooms">Villas/Suites</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/booking">Booking</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/pbpavilion">PB Pavilion</Link>
+          <Link className="nav-link" to="/wellness">Wellness</Link>
         </li>
          <li className="nav-item">
-          <Link className="nav-link" to="/wellness">Wellness</Link>
+          <Link className="nav-link" to="/pbpavilion">PB Pavilion</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/booking">Booking</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="https://www.agapeprimehotel.com/WP/about/">About Us</Link>

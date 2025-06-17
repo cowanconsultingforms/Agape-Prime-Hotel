@@ -17,7 +17,7 @@ export default function Home() {
   const cards = [
     { img: roomCardImg, label: 'Reserve a Suite/Villa', to: '/rooms' },
     { img: wellnessCenterImg, label: 'Reserve Wellness Center', to: '/wellness' },
-    { img: pbPavilionImg, label: 'Reserve PB Pavilion', to: '/pb-pavilion' }
+    { img: pbPavilionImg, label: 'Reserve PB Pavilion', to: '/pbpavilion' }
   ];
 
   return (
