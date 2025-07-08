@@ -16,8 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/booking" element={<Booking />} /> {/* ✅ Use Booking with capital B */}
+        <Route path="/sign-up" element={<SignUp />} /> 
+        <Route path="/booking" element={<Booking />} /> {/* ✅Booking Route*/}
          <Route path="/pbpavilion" element={<PBPavilion />} />  {/* ✅ PB Pavilion route */}
         <Route path="/wellness" element={<Wellness />} />       {/* ✅ Wellness route */}
       </Routes>

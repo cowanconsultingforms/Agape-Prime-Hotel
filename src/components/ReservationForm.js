@@ -1,22 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { addDoc, doc, updateDoc } from 'firebase/firestore';
 
-export default function ReservationForm({ selectedVilla }) {
+export default function ReservationForm() {
   const [formData, setFormData] = useState({
     name: '',
     checkIn: '',
     checkOut: '',
     guests: 2,
     note: '',
-    villa: selectedVilla?.name || ''
+    villa: ''
   });
 
+  const [availableVillas, setAvailableVillas] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState(null);
 
+  useEffect(() => {
+    const fetchAvailableVillas = async () => {
+      try {
+        const q = query(collection(db, 'villas'), where('available', '==', true));
+        const snapshot = await getDocs(q);
+        const villas = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setAvailableVillas(villas);
+      } catch (error) {
+        console.error('Error fetching villas:', error);
+      }
+    };
+
+    fetchAvailableVillas();
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
+    setFormData(prev => ({
+      ...prev,
       [name]: value
     }));
   };
@@ -25,25 +44,34 @@ export default function ReservationForm({ selectedVilla }) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch('https://your-api-endpoint/reservations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+     try {
+    const selected = availableVillas.find(v => v.name === formData.villa);
 
-      if (response.ok) {
-        setSubmitMessage({ type: 'success', text: 'Reservation submitted successfully!' });
-        setFormData({ name: '', checkIn: '', checkOut: '', guests: 2, note: '', villa: '' });
-      } else {
-        setSubmitMessage({ type: 'error', text: 'There was an error submitting your reservation.' });
-      }
-    } catch (error) {
-      setSubmitMessage({ type: 'error', text: 'Network error. Please try again later.' });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    // Add booking document
+    await addDoc(collection(db, 'bookings'), {
+      ...formData,
+      villaId: selected?.id,
+      timestamp: new Date()
+    });
+
+    // Update villa availability
+    const villaRef = doc(db, 'villas', selected.id);
+    await updateDoc(villaRef, { available: false });
+
+    setSubmitMessage({ type: 'success', text: 'Reservation submitted successfully!' });
+    setFormData({ name: '', checkIn: '', checkOut: '', guests: 2, note: '', villa: '' });
+
+    // Optional: Refetch villas after update
+    setAvailableVillas(prev => prev.filter(v => v.id !== selected.id));
+  } catch (error) {
+    console.error('Error submitting reservation:', error);
+    setSubmitMessage({ type: 'error', text: 'Something went wrong. Please try again.' });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+  const selectedVilla = availableVillas.find(v => v.name === formData.villa);
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
@@ -108,22 +136,29 @@ export default function ReservationForm({ selectedVilla }) {
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              {[1,2,3,4,5,6].map(n => (
+              {[1, 2, 3, 4, 5, 6].map(n => (
                 <option key={n} value={n}>{n} {n === 1 ? 'Guest' : 'Guests'}</option>
               ))}
             </select>
           </div>
 
           <div>
-            <label htmlFor="villa" className="block text-sm font-medium text-gray-700 mb-1">Selected Villa *</label>
-            <input
-              type="text"
+            <label htmlFor="villa" className="block text-sm font-medium text-gray-700 mb-1">Select Villa *</label>
+            <select
               id="villa"
               name="villa"
               value={formData.villa}
-              readOnly
-              className="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-md focus:outline-none"
-            />
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="">-- Select a Villa --</option>
+              {availableVillas.map(villa => (
+                <option key={villa.id} value={villa.name}>
+                  {villa.name} (${villa.price}/night)
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="md:col-span-2">
@@ -141,7 +176,10 @@ export default function ReservationForm({ selectedVilla }) {
 
           <div className="md:col-span-2 flex justify-between items-center">
             <p className="text-gray-700 font-semibold">
-              Total (taxes included): <span className="text-blue-600 text-lg font-bold">{selectedVilla?.price || '$0'}/night</span>
+              Total (taxes included):{' '}
+              <span className="text-blue-600 text-lg font-bold">
+                ${selectedVilla?.price || 0}/night
+              </span>
             </p>
             <button
               type="submit"

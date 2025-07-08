@@ -72,7 +72,7 @@ export default function Home() {
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.5 }}
 >
-              <Card sx={{ minWidth: 300, maxWidth: 350, position: 'relative', color: 'white' }}>
+              <Card sx={{ width: 350, position: 'relative', color: 'white'}}>
                 <CardMedia
                   component="img"
                   image={item.img}
