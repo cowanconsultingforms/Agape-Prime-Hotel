@@ -29,7 +29,7 @@ const Wellness = () => {
   ];
 
   return (
-    <div style={{ position: "relative", height: "100vh", overflowX: "hidden"}}>
+    <div style={{  position: "relative", overflowX: "hidden"}}>
       <video
         autoPlay
         muted
@@ -48,6 +48,7 @@ const Wellness = () => {
         <source src="/videos/sunsetbluedark.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <WellnessCard></WellnessCard>
     </div>
   );
 };

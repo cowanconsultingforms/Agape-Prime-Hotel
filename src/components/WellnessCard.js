@@ -1,4 +1,4 @@
-/* 
+ 
 import React from 'react';
 import {
   Card,
@@ -10,13 +10,13 @@ import {
   Button
 } from '@mui/material';
 
-import massageImg from '../assets/images/massage.jpg';
-import headSpaImg from '../assets/images/headspa.jpg';
-import facialsImg from '../assets/images/facials.jpg';
-import bodyTreatmentsImg from '../assets/images/body-treatments.jpg';
-import scrubsImg from '../assets/images/scrubs.jpg';
-import expressImg from '../assets/images/express.jpg';
-import bathSaunaImg from '../assets/images/bath-sauna.jpg';
+import massageImg from '../assets/images/wellness-images/massageImg.jpg';
+import headSpaImg from '../assets/images/wellness-images/headspaImg.jpg';
+import facialsImg from '../assets/images/wellness-images/facialsImg.jpg';
+// import bodyTreatmentsImg from '../assets/images/wellness-images/bodyTreatmentsImg.jpgf';
+import scrubsImg from '../assets/images/wellness-images/scrubsImg.jpg';
+import expressImg from '../assets/images/wellness-images/expressImg.jpg';
+import bathSaunaImg from '../assets/images/wellness-images/bathSaunaImg.jpg';
 
 // ✅ Your data array right above your component (same pattern as villas)
 const wellnessServices = [
@@ -45,7 +45,7 @@ const wellnessServices = [
     id: 4,
     name: 'Body Treatments',
     subtitle: 'Exfoliation & Detox',
-    image: bodyTreatmentsImg,
+    // image: bodyTreatmentsImg,
     description: 'Indulge your body with our detox and exfoliation services.',
   },
   {
@@ -113,4 +113,3 @@ const WellnessCard = () => (
 
 export default WellnessCard;
 
-*/
