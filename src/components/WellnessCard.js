@@ -13,7 +13,7 @@ import {
 import massageImg from '../assets/images/wellness-images/massageImg.jpg';
 import headSpaImg from '../assets/images/wellness-images/headspaImg.jpg';
 import facialsImg from '../assets/images/wellness-images/facialsImg.jpg';
-// import bodyTreatmentsImg from '../assets/images/wellness-images/bodyTreatmentsImg.jpgf';
+import bodyTreatmentsImg from '../assets/images/wellness-images/bodyTreatmentImg.jpg';
 import scrubsImg from '../assets/images/wellness-images/scrubsImg.jpg';
 import expressImg from '../assets/images/wellness-images/expressImg.jpg';
 import bathSaunaImg from '../assets/images/wellness-images/bathSaunaImg.jpg';

@@ -7,7 +7,7 @@ import {
   Box
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion'; // <-- Add this
+import { motion } from 'framer-motion'; 
 
 // Assets
 import roomCardImg from '../assets/images/villas-suites-bubble.jpg';
@@ -45,7 +45,8 @@ export default function Home() {
         sx={{
           position: 'relative',
           zIndex: 1,
-          height: '100vh',
+         minHeight: '100vh',
+        padding: '2rem 1rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -72,7 +73,7 @@ export default function Home() {
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.5 }}
 >
-              <Card sx={{ width: 350, position: 'relative', color: 'white'}}>
+              <Card sx={{ width: { xs: 280, sm: 320, md: 350},  position: 'relative', color: 'white'}}>
                 <CardMedia
                   component="img"
                   image={item.img}
