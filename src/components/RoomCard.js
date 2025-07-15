@@ -60,7 +60,7 @@ const villas = [
     id: 3,
     name: 'Ocean Breeze Villa',
     subtitle: 'Hillside Escape',
-    image: oceanBreezeImg,
+    image: sunsetPalmsImg,
     price: '$319',
     size: '1,050 sq ft',
     maxOccupancy: '3 guests',
@@ -77,7 +77,7 @@ const villas = [
     id: 4,
     name: 'Blue Horizon Villa',
     subtitle: 'Modern Oceanfront',
-    image: blueHorizonImg,
+    image: sunsetPalmsImg,
     price: '$379',
     size: '1,300 sq ft',
     maxOccupancy: '4 guests',
@@ -111,7 +111,7 @@ const villas = [
     id: 6,
     name: 'Vista Del Mar Villa',
     subtitle: 'Panoramic View',
-    image: carribeanBreezeImg,
+    image: sunsetPalmsImg,
     price: '$399',
     size: '1,500 sq ft',
     maxOccupancy: '2 guests',
@@ -145,7 +145,7 @@ const villas = [
     id: 8,
     name: 'Palm Grove Villa',
     subtitle: 'Private Estate',
-    image: carribeanBreezeImg,
+    image: sunsetPalmsImg,
     price: '$499',
     size: '2,000 sq ft',
     maxOccupancy: '6 guests',
@@ -169,7 +169,7 @@ const RoomCard = () => (
       Experience the ultimate in Caribbean luxury with our exclusive collection of villas...
     </Typography>
 
-    <Grid container spacing={4} mt={2}>
+    <Grid container spacing={4} mt={2} alignItems={'stretch'}>
       {villas.map((villa) => (
         <Grid item key={villa.id} xs={12} sm={6} md={4} lg={3} sx={{ display: 'flex' }}>
           <Card
@@ -178,6 +178,7 @@ const RoomCard = () => (
               flexDirection: 'column',
               height: '100%',
               width: '100%',
+              minHeight: 500,
             }}
           >
             <Box sx={{ position: 'relative' }}>
@@ -185,7 +186,7 @@ const RoomCard = () => (
                 component="img"
                 image={villa.image}
                 alt={villa.name}
-                sx={{ height: 200, objectFit: 'cover' }}
+                sx={{ height: 200, width: "100%", objectFit: 'cover' }}
               />
               <Box
                 sx={{
@@ -214,8 +215,12 @@ const RoomCard = () => (
                 overflow: 'hidden',
               }}
             >
-              <Typography variant="h6">{villa.name}</Typography>
-              <Typography variant="subtitle2" color="text.secondary">
+              <Typography variant="h6" noWrap={false} sx={{minHeight:56}}>{villa.name}</Typography>
+           <Typography
+  variant="subtitle2"
+  color="text.secondary"
+  sx={{ minHeight: 40 }} // force subtitle area height
+>
                 {villa.subtitle}
               </Typography>
 
@@ -223,7 +228,7 @@ const RoomCard = () => (
                 {villa.size} • {villa.maxOccupancy} • {villa.bedConfig}
               </Box>
 
-              <Box sx={{ mt: 2, flexGrow: 1, overflowY: 'auto' }}>
+              <Box sx={{ mt: 2, maxHeight: 120,  overflowY: 'auto', }}>
                 <Typography variant="subtitle2" fontWeight="bold">
                   Villa Amenities
                 </Typography>
@@ -241,7 +246,7 @@ const RoomCard = () => (
                 <Button variant="outlined" size="small">
                   View Details
                 </Button>
-                <Button variant="contained" size="small" href="#booking">
+                <Button variant="contained" size="small" href="booking">
                   Book Now
                 </Button>
               </Box>
