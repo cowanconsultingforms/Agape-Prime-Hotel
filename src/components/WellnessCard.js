@@ -45,7 +45,7 @@ const wellnessServices = [
     id: 4,
     name: 'Body Treatments',
     subtitle: 'Exfoliation & Detox',
-    // image: bodyTreatmentsImg,
+    image: bodyTreatmentsImg,
     description: 'Indulge your body with our detox and exfoliation services.',
   },
   {
