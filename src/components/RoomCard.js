@@ -16,6 +16,7 @@ import {
   FaShower,
 } from 'react-icons/fa';
 
+//Images of Villas
 import sunsetPalmsImg from '../assets/images/villa-images/sunset-palms-villa.jpg';
 import carribeanBreezeImg from '../assets/images/villa-images/carribean-breeze-villa.jpg';
 import oceanBreezeImg from '../assets/images/villa-images/ocean-breeze-villa.webp';

@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import SignUp from "./pages/SignUp";
-import Booking from "./pages/BookingTemp"; // ✅ Correct casing
+import Booking from "./pages/Booking"; // ✅ Correct casing
 import PBPavilion from "./pages/PBPavilion"; 
 import Wellness from "./pages/Wellness"; 
 import { ToastContainer } from 'react-toastify';

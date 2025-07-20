@@ -1,4 +1,5 @@
 import React from 'react';
+import FoodCard from '../components/FoodCard';
 
 
 
@@ -23,6 +24,9 @@ const PBPavilion = () => {
         <source src="/videos/sunsetbluedark.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+
+        <FoodCard></FoodCard>
+
     </div>
    
   );
