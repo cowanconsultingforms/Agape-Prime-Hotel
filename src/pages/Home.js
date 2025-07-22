@@ -7,12 +7,14 @@ import {
   Box
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion'; 
+import { motion } from 'framer-motion';
+import "../css/Home.css";
 
 // Assets
 import roomCardImg from '../assets/images/villas-suites-bubble.jpg';
-import wellnessCenterImg from '../assets/images/wellnesscenter.jpg'; 
+import wellnessCenterImg from '../assets/images/wellnesscenter.jpg';
 import pbPavilionImg from '../assets/images/pbpavilionbar.jpg';
+
 export default function Home() {
   const cards = [
     { img: roomCardImg, label: 'Reserve a Suite/Villa', to: '/rooms' },
@@ -45,8 +47,8 @@ export default function Home() {
         sx={{
           position: 'relative',
           zIndex: 1,
-         minHeight: '100vh',
-        padding: '2rem 1rem',
+          minHeight: '100vh',
+          padding: '2rem 1rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -64,33 +66,44 @@ export default function Home() {
             <Link
               to={item.to}
               key={index}
-              style={{ textDecoration: 'none' }} // Remove underline
+              style={{ textDecoration: 'none' }}
             >
               <motion.div
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5 }}
->
-              <Card sx={{ width: { xs: 280, sm: 320, md: 350},  position: 'relative', color: 'white'}}>
-                <CardMedia
-                  component="img"
-                  image={item.img}
-                  height="300"
-                  sx={{ filter: 'brightness(0.7)' }}
-                />
-                <CardContent sx={{ position: 'absolute', bottom: 16, width: '100%' }}>
-                  <Typography variant="h6" align="center" sx={{ color: 'white' }}>
-                    {item.label}
-                  </Typography>
-                </CardContent>
-              </Card>
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Card sx={{ width: { xs: 280, sm: 320, md: 350 }, position: 'relative', color: 'white' }}>
+                  <CardMedia
+                    component="img"
+                    image={item.img}
+                    height="300"
+                    sx={{ filter: 'brightness(0.7)' }}
+                  />
+                  <CardContent sx={{ position: 'absolute', bottom: 16, width: '100%' }}>
+                    <Typography
+                      variant="h6"
+                      align="center"
+                      sx={{ color: 'white', fontFamily: "'Cormorant Garamond', serif" }}
+                    >
+                      {item.label}
+                    </Typography>
+                  </CardContent>
+                </Card>
               </motion.div>
             </Link>
           ))}
         </Box>
       </Box>
+    <div className="home-footer">
+      <p>info@agapeprimehotel.com</p>
+      <p>© Agape Prime Hotel, Inc. 2025–Present. All rights reserved.</p>
+      <p>XXX TBD Road, Belize City, Belize XXXXX</p>
+      <p>Phone: 1-877-732-3492 | Fax: 1-877-760-2763 / 1-718-771-5900</p>
+      <p className="footer-note">Agape Prime Hotel logos are trademarks of Agape Prime, LLC. All information is deemed reliable but not guaranteed.</p>
+    </div>
     </div>
   );
 }

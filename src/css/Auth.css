@@ -1,0 +1,137 @@
+.auth-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.auth-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    color: #fff;
+    text-align: center;
+}
+
+.auth-form h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    font-family: 'Playfair Display', serif;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.auth-form input::placeholder {
+    color: #ffffffb2;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #002b5c;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+    background-color: #001a3c;
+}
+
+.switch-link {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.switch-link span {
+    color: #dcdcdc;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding-right: 80px;
+    /* make room for the button */
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+.google-btn {
+    margin-top: 10px;
+    padding: 10px 16px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #fff;
+    color: #444;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Cormorant Garamond", serif;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.google-btn:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.google-btn:active {
+    background-color: #eaeaea;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+}

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import SignUp from "./pages/SignUp";
+import SignIn from './pages/SignIn';
 import Booking from "./pages/Booking"; // ✅ Correct casing
 import PBPavilion from "./pages/PBPavilion"; 
 import Wellness from "./pages/Wellness"; 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/sign-up" element={<SignUp />} /> 
+        <Route path="/sign-in" element={<SignIn />} />
         <Route path="/booking" element={<Booking />} /> {/* ✅Booking Route*/}
          <Route path="/pbpavilion" element={<PBPavilion />} />  {/* ✅ PB Pavilion route */}
         <Route path="/wellness" element={<Wellness />} />       {/* ✅ Wellness route */}

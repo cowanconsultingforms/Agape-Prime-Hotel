@@ -3,6 +3,7 @@ import { db } from '../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import './ReservationForm.css';
+import coralImage from "../assets/images/coralpicAGAPE.jpg";
 
 export default function ReservationForm() {
     const [formData, setFormData] = useState({
