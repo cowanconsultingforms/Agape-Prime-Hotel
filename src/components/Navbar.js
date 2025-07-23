@@ -19,13 +19,16 @@ function Navbar() {
           alt="Agape Prime Hotel Logo"
           onClick={() => navigate("/")}
           style={{
-            height: "80px",
+            height: "50px",
             width: "auto",
             maxWidth: "240px",
             cursor: "pointer",
             objectFit: "contain"
           }}
         />
+
+        
+
 
 
         <button
