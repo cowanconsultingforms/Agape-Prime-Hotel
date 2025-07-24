@@ -1,31 +1,37 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import { AuthProvider } from "./AuthContext";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
+import Wellness from "./pages/Wellness";
+import PBPavilion from "./pages/PBPavilion";
+import Booking from "./pages/Booking";
+import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import SignIn from './pages/SignIn';
-import Booking from "./pages/Booking"; // ✅ Correct casing
-import PBPavilion from "./pages/PBPavilion"; 
-import Wellness from "./pages/Wellness"; 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import ViewRoomDetails from "./pages/ViewRoomDetails";
 
 function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/rooms" element={<Rooms />} />
-        <Route path="/sign-up" element={<SignUp />} /> 
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/booking" element={<Booking />} /> {/* ✅Booking Route*/}
-         <Route path="/pbpavilion" element={<PBPavilion />} />  {/* ✅ PB Pavilion route */}
-        <Route path="/wellness" element={<Wellness />} />       {/* ✅ Wellness route */}
-      </Routes>
-      <ToastContainer />
-    </Router>
-  );
+    return (
+        <AuthProvider>
+            <Router>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/rooms" element={<Rooms />} />
+                    <Route path="/wellness" element={<Wellness />} />
+                    <Route path="/pbpavilion" element={<PBPavilion />} />
+                    <Route path="/booking" element={<Booking />} />
+                    {/* Allow both hyphen and no-hyphen for sign in/up */}
+                    <Route path="/signin" element={<SignIn />} />
+                    <Route path="/sign-in" element={<SignIn />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/sign-up" element={<SignUp />} />
+                    <Route path="/room/:id" element={<ViewRoomDetails />} />
+                </Routes>
+            </Router>
+        </AuthProvider>
+    );
 }
 
 export default App;
