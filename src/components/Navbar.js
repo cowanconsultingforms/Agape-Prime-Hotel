@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/agapeprimehotelLOGO.png";
+import { useAuth } from "../AuthContext";
 
 function Navbar() {
   const fontStyle = {
@@ -10,6 +11,12 @@ function Navbar() {
     fontWeight: 575,
   };
   const navigate = useNavigate();
+  const { currentUser, logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/sign-in");
+  };
 
   return (
     <nav className="navbar navbar-expand-sm bg-light navbar-light" style={fontStyle}>
@@ -26,10 +33,6 @@ function Navbar() {
             objectFit: "contain"
           }}
         />
-
-        
-
-
 
         <button
           className="navbar-toggler"
@@ -69,6 +72,8 @@ function Navbar() {
                 className="nav-link"
                 to="https://www.agapeprimehotel.com/WP/about/"
                 style={fontStyle}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 About Us
               </Link>
@@ -78,6 +83,8 @@ function Navbar() {
                 className="nav-link"
                 to="https://www.agapeprimehotel.com/WP/contact/"
                 style={fontStyle}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Contact
               </Link>
@@ -93,16 +100,30 @@ function Navbar() {
                 Account
               </span>
               <ul className="dropdown-menu">
-                <li>
-                  <Link className="dropdown-item" to="/sign-up" style={fontStyle}>
-                    Sign Up
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/sign-in" style={fontStyle}>
-                    Sign In
-                  </Link>
-                </li>
+                {currentUser ? (
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={handleLogout}
+                      style={fontStyle}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                ) : (
+                  <>
+                    <li>
+                      <Link className="dropdown-item" to="/sign-up" style={fontStyle}>
+                        Sign Up
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/sign-in" style={fontStyle}>
+                        Sign In
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </li>
           </ul>

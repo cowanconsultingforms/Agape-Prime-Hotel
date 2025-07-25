@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardContent,
   CardMedia,
   Typography,
   Button,
-  Grid,
   Box,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  IconButton
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import {
   FaSwimmingPool,
   FaUmbrellaBeach,
@@ -16,7 +21,6 @@ import {
   FaShower,
 } from 'react-icons/fa';
 
-//Images of Villas
 import sunsetPalmsImg from '../assets/images/villa-images/sunset-palms-villa.jpg';
 import carribeanBreezeImg from '../assets/images/villa-images/carribean-breeze-villa.jpg';
 import oceanBreezeImg from '../assets/images/villa-images/ocean-breeze-villa.webp';
@@ -161,102 +165,218 @@ const villas = [
   },
 ];
 
-const RoomCard = () => (
-  <Box sx={{ padding: 4 }}>
-    <Typography variant="h4" align="center" gutterBottom>
-      Villas
-    </Typography>
-    <Typography variant="subtitle1" align="center" color="text.secondary">
-      Experience the ultimate in Caribbean luxury with our exclusive collection of villas...
-    </Typography>
+const RoomCard = () => {
+  const [openVilla, setOpenVilla] = useState(null);
 
-    <Grid container spacing={4} mt={2} alignItems={'stretch'}>
-      {villas.map((villa) => (
-        <Grid item key={villa.id} xs={12} sm={6} md={4} lg={3} sx={{ display: 'flex' }}>
-          <Card
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              height: '100%',
-              width: '100%',
-              minHeight: 500,
-            }}
-          >
-            <Box sx={{ position: 'relative' }}>
-              <CardMedia
-                component="img"
-                image={villa.image}
-                alt={villa.name}
-                sx={{ height: 200, width: "100%", objectFit: 'cover' }}
-              />
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: 8,
-                  right: 8,
-                  backgroundColor: 'primary.main',
-                  color: '#fff',
-                  px: 1.5,
-                  py: 0.5,
-                  borderRadius: 1,
-                  fontWeight: 'bold',
-                  fontSize: '0.9rem',
-                }}
-              >
-                {villa.price}
-                <span style={{ fontWeight: 300 }}>/night</span>
-              </Box>
-            </Box>
+  const handleOpen = (villa) => {
+    setOpenVilla(villa);
+  };
 
-            <CardContent
+  const handleClose = () => {
+    setOpenVilla(null);
+  };
+
+  return (
+    <Box sx={{ padding: 4 }}>
+      {/* Premium section header */}
+      <Box sx={{ mb: 5, textAlign: 'center' }}>
+        <Typography
+          variant="h2"
+          sx={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 800,
+            letterSpacing: 2,
+            color: '#263238',
+            mb: 1,
+            textShadow: '0 2px 18px #fff6',
+          }}
+        >
+          Our Signature Villas & Suites
+        </Typography>
+        <Box
+          sx={{
+            width: 90,
+            height: 4,
+            background: 'linear-gradient(90deg, #002147 0%, #005792 100%)',
+            borderRadius: 2,
+            margin: '18px auto 18px auto',
+            opacity: 0.6,
+          }}
+        />
+        <Typography
+          variant="h5"
+          sx={{
+            color: '#455a64',
+            maxWidth: 640,
+            mx: 'auto',
+            fontWeight: 500,
+            letterSpacing: 1,
+            mb: 2,
+            lineHeight: 1.4,
+            fontFamily: "'Cormorant Garamond', serif"
+          }}
+        >
+          Discover a private sanctuary where every villa is crafted for serenity, comfort, and unforgettable Caribbean memories. Wake to ocean breezes, lounge by your own pool, and experience a world apart—yours to savor.
+        </Typography>
+      </Box>
+
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: 4,
+          mt: 2,
+          justifyItems: 'center',
+          alignItems: 'stretch',
+          width: '100%',
+          maxWidth: '1400px',
+          margin: '0 auto',
+        }}
+      >
+        {villas.map((villa) => (
+          <Box key={villa.id} sx={{ width: '100%', display: 'flex', height: '100%' }}>
+            <Card
               sx={{
-                flexGrow: 1,
                 display: 'flex',
                 flexDirection: 'column',
-                overflow: 'hidden',
+                height: '100%',
+                width: '100%',
+                minHeight: 360,
+                fontFamily: "'Cormorant Garamond', serif"
               }}
             >
-              <Typography variant="h6" noWrap={false} sx={{minHeight:56}}>{villa.name}</Typography>
-           <Typography
-  variant="subtitle2"
-  color="text.secondary"
-  sx={{ minHeight: 40 }} // force subtitle area height
->
-                {villa.subtitle}
-              </Typography>
-
-              <Box sx={{ mt: 1, fontSize: '0.9rem', color: 'text.secondary' }}>
-                {villa.size} • {villa.maxOccupancy} • {villa.bedConfig}
+              <Box sx={{ position: 'relative' }}>
+                <CardMedia
+                  component="img"
+                  image={villa.image}
+                  alt={villa.name}
+                  sx={{ height: 140, width: "100%", objectFit: 'cover' }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 8,
+                    right: 8,
+                    backgroundColor: 'primary.main',
+                    color: '#fff',
+                    px: 1.5,
+                    py: 0.5,
+                    borderRadius: 1,
+                    fontWeight: 'bold',
+                    fontSize: '0.9rem',
+                  }}
+                >
+                  {villa.price}
+                  <span style={{ fontWeight: 300 }}>/night</span>
+                </Box>
               </Box>
 
-              <Box sx={{ mt: 2, maxHeight: 120,  overflowY: 'auto', }}>
-                <Typography variant="subtitle2" fontWeight="bold">
+              <CardContent
+                sx={{
+                  flexGrow: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  overflow: 'hidden',
+                  pb: 0,
+                  fontFamily: "'Cormorant Garamond', serif"
+                }}
+              >
+                <Typography variant="h6" noWrap={false} sx={{ minHeight: 56, fontFamily: "'Cormorant Garamond', serif" }}>{villa.name}</Typography>
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  sx={{ minHeight: 40, fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  {villa.subtitle}
+                </Typography>
+
+                <Box sx={{ mt: 1, fontSize: '1.02rem', color: 'text.secondary', fontFamily: "'Cormorant Garamond', serif" }}>
+                  {villa.size} • {villa.maxOccupancy} • {villa.bedConfig}
+                </Box>
+
+                <Box sx={{ mt: 2, maxHeight: 72, overflowY: 'auto', fontFamily: "'Cormorant Garamond', serif" }}>
+                  <Typography variant="subtitle2" fontWeight="bold" sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    Villa Amenities
+                  </Typography>
+                  <ul style={{ paddingLeft: '1.2em', margin: 0, fontFamily: "'Cormorant Garamond', serif" }}>
+                    {villa.amenities.map((amenity, index) => (
+                      <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: 4, fontFamily: "'Cormorant Garamond', serif" }}>
+                        <span style={{ marginRight: 6 }}>{amenity.icon}</span>
+                        <Typography variant="body2" sx={{ fontFamily: "'Cormorant Garamond', serif" }}>{amenity.text}</Typography>
+                      </li>
+                    ))}
+                  </ul>
+                </Box>
+
+                {/* BUTTONS ALWAYS AT THE BOTTOM */}
+                <Box sx={{ mt: 'auto', display: 'flex', justifyContent: 'space-between', pt: 2 }}>
+                  <Button variant="outlined" size="small" onClick={() => handleOpen(villa)} sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    View Details
+                  </Button>
+                  <Button variant="contained" size="small" href="booking" sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    Book Now
+                  </Button>
+                </Box>
+              </CardContent>
+            </Card>
+          </Box>
+        ))}
+      </Box>
+
+      <Dialog open={Boolean(openVilla)} onClose={handleClose} maxWidth="sm" fullWidth>
+        {openVilla && (
+          <>
+            <DialogTitle sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              {openVilla.name}
+              <IconButton
+                aria-label="close"
+                onClick={handleClose}
+                sx={{
+                  position: 'absolute',
+                  right: 8,
+                  top: 8,
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent dividers sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              <img src={openVilla.image} alt={openVilla.name} style={{ width: '100%', borderRadius: 8, marginBottom: 12 }} />
+              <Typography variant="subtitle1" color="text.secondary" gutterBottom sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                {openVilla.subtitle}
+              </Typography>
+              <Typography variant="body1" gutterBottom sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                <b>Size:</b> {openVilla.size}<br />
+                <b>Max Occupancy:</b> {openVilla.maxOccupancy}<br />
+                <b>Beds:</b> {openVilla.bedConfig}
+              </Typography>
+              <Box sx={{ mt: 2, fontFamily: "'Cormorant Garamond', serif" }}>
+                <Typography variant="subtitle2" fontWeight="bold" sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
                   Villa Amenities
                 </Typography>
-                <ul style={{ paddingLeft: '1.2em', margin: 0 }}>
-                  {villa.amenities.map((amenity, index) => (
-                    <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: 4 }}>
+                <ul style={{ paddingLeft: '1.2em', margin: 0, fontFamily: "'Cormorant Garamond', serif" }}>
+                  {openVilla.amenities.map((amenity, index) => (
+                    <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: 4, fontFamily: "'Cormorant Garamond', serif" }}>
                       <span style={{ marginRight: 6 }}>{amenity.icon}</span>
-                      <Typography variant="body2">{amenity.text}</Typography>
+                      <Typography variant="body2" sx={{ fontFamily: "'Cormorant Garamond', serif" }}>{amenity.text}</Typography>
                     </li>
                   ))}
                 </ul>
               </Box>
-
-              <Box sx={{ mt: 2, display: 'flex', justifyContent: 'space-between' }}>
-                <Button variant="outlined" size="small">
-                  View Details
-                </Button>
-                <Button variant="contained" size="small" href="booking">
-                  Book Now
-                </Button>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
-  </Box>
-);
+            </DialogContent>
+            <DialogActions sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              <Button onClick={handleClose} variant="contained" color="primary" sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                Close
+              </Button>
+              <Button variant="contained" color="success" href="booking" sx={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                Book Now
+              </Button>
+            </DialogActions>
+          </>
+        )}
+      </Dialog>
+    </Box>
+  );
+};
 
 export default RoomCard;

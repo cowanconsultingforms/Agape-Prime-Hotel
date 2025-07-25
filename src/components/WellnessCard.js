@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 
 import massageImg from '../assets/images/wellness-images/massageImg.jpg';
-import headSpaImg from '../assets/images/wellness-images/headspaImg.jpg';
+import headSpaImg from '../assets/images/wellness-images/headspa.png';
 import facialsImg from '../assets/images/wellness-images/facialsImg.jpg';
 import bodyTreatmentsImg from '../assets/images/wellness-images/bodyTreatmentImg.jpg';
 import scrubsImg from '../assets/images/wellness-images/scrubsImg.jpg';

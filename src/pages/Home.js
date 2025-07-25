@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import "../css/Home.css";
+// import "../css/Home.css";
 
 // Assets
 import roomCardImg from '../assets/images/villas-suites-bubble.jpg';
