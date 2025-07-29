@@ -12,6 +12,54 @@ const priceColors = ['#FFC300', '#FF5733', '#28B463', '#5DADE2', '#AF7AC5', '#F3
 
 const events = [
     {
+        title: 'Legacy Lounge: Baldwin & Bubbles',
+        price: '$100+ PER PERSON',
+        image: inhomesushi,
+        details: [
+            'A LITERARY TOAST TO CULTURE AND TASTE',
+            '2-hour sunset lounge experience',
+            'Charcuterie and signature Afro-Latin tapas',
+            'Champagne, Prosecco, & artisanal mocktails',
+            'Minimum of 6 guests'
+        ]
+    },
+    {
+        title: 'Civic Spirit: Hamilton Pour',
+        price: '$110+ PER PERSON',
+        image: sushihouse,
+        details: [
+            'REVOLUTIONARY FLAVORS, SERVED IN STYLE',
+            '2-hour cocktail-forward lounge tasting',
+            'Elevated hors d’oeuvres with bold global notes',
+            'Curated wine + cocktail flight (3 rounds)',
+            'Minimum of 6 guests'
+        ]
+    },
+    {
+        title: 'Island Revival: Garífuna Gold',
+        price: '$125+ PER PERSON',
+        image: uniliveonce,
+        details: [
+            'ROOTED IN HERITAGE, INFUSED WITH SPICE',
+            '90-minute communal table experience',
+            '10-course Afro-Caribbean tasting menu',
+            '90-minute rum and fresh-juice cocktail bar',
+            'Minimum of 6 guests'
+        ]
+    },
+    {
+        title: 'Prime Roots: Agape Garden Table',
+        price: '$135+ PER PERSON',
+        image: tunaspectacle,
+        details: [
+            'FRESH, BOTANICAL, AND FARM-TO-GLASS',
+            '90-minute guided food & drink pairing session',
+            'Garden-sourced tasting menu (vegetarian optional)',
+            'Floral & fruit-forward cocktail and wine pairings',
+            'Minimum of 4 guests'
+        ]
+    },
+    {
         title: 'The American Dream: Tubman',
         price: '$150+ PER PERSON',
         image: bougie,
@@ -24,58 +72,16 @@ const events = [
         ]
     },
     {
-        title: 'Uni Live Once',
-        price: '$300 PER PERSON',
-        image: uniliveonce,
-        details: [
-            '2-hour cocktail experience',
-            '12 curated plates',
-            '2 rolls per guest',
-            'Full open bar',
-            'Minimum of 15 guests'
-        ]
-    },
-    {
-        title: 'Sushi House Party',
-        price: '$175 PER PERSON',
-        image: sushihouse,
-        details: [
-            '2-hour event',
-            'Passed bites & stations',
-            'Private host & chefs',
-            'Minimum of 15 guests'
-        ]
-    },
-    {
-        title: 'In-Home Sushi Dinner',
-        price: '$230 PER PERSON',
-        image: inhomesushi,
-        details: [
-            '2-hour seated dinner',
-            '17 curated courses',
-            'Private chef & server',
-            'Minimum of 6 guests'
-        ]
-    },
-    {
-        title: 'Tuna Spectacle',
-        price: '$10K MINIMUM',
-        image: tunaspectacle,
-        details: [
-            '3-hour dinner & show',
-            'Whole roast or showcase plate',
-            'Feeds up to 50 guests'
-        ]
-    },
-    {
-        title: 'Sushi Making Classes',
-        price: '$75++ PER PERSON',
+        title: 'Liberation Fire: Maroon Feast',
+        price: '$160+ PER PERSON',
         image: sushiclass,
         details: [
-            'Hands-on class',
-            'Make 3 signature items',
-            'Ends with tasting',
-            'Optional take-home kit'
+            'CELEBRATING RESILIENCE THROUGH FLAVOR',
+            '2-hour long-table feast',
+            '5 fire-grilled, chef-prepared courses',
+            'Bold aged spirits, mezcal, and smoked cocktails',
+            'Live music or spoken word (optional add-on)',
+            'Minimum of 10 guests'
         ]
     }
 ];
@@ -112,7 +118,7 @@ const PBPavilion = () => {
                     alignItems: 'stretch',
                     position: 'relative',
                     zIndex: 1,
-                    maxWidth: '1200px',
+                    maxWidth: '1350px',
                     margin: '0 auto'
                 }}
             >
