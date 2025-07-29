@@ -10,15 +10,15 @@ import {
   Button
 } from '@mui/material';
 
-import massageImg from '../assets/images/wellness-images/massageImg.jpg';
+import massageImg from '../assets/images/wellness-images/massageback.jpg';
 import headSpaImg from '../assets/images/wellness-images/headspa.png';
 import facialsImg from '../assets/images/wellness-images/facialsImg.jpg';
-import bodyTreatmentsImg from '../assets/images/wellness-images/bodyTreatmentImg.jpg';
-import scrubsImg from '../assets/images/wellness-images/scrubsImg.jpg';
+import bodyTreatmentsImg from '../assets/images/wellness-images/blackrockonback.jpg';
+import scrubsImg from '../assets/images/wellness-images/facemask.jpg';
 import expressImg from '../assets/images/wellness-images/expressImg.jpg';
-import bathSaunaImg from '../assets/images/wellness-images/bathSaunaImg.jpg';
+import bathSaunaImg from '../assets/images/wellness-images/lemonsonwater.jpg';
 
-// ✅ Your data array right above your component (same pattern as villas)
+
 const wellnessServices = [
   {
     id: 1,

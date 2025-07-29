@@ -7,10 +7,7 @@ import {
   Box
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion'; // <-- Add this
-
-
-// Assets
+import { motion } from 'framer-motion';
 import roomCardImg from '../assets/images/villas-suites-bubble.jpg';
 import wellnessCenterImg from '../assets/images/wellnesscenter.jpg'; 
 import pbPavilionImg from '../assets/images/pbpavilionbar.jpg';
