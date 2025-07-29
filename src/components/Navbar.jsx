@@ -64,7 +64,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/booking" style={fontStyle}>
-                Booking
+                Book
               </Link>
             </li>
             <li className="nav-item">

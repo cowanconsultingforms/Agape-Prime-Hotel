@@ -23,3 +23,5 @@ const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
+
+console.log("Connecting to Firebase with:", firebaseConfig);

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react';
 import {
   Card,
@@ -26,6 +28,18 @@ import carribeanBreezeImg from '../assets/images/villa-images/carribean-breeze-v
 import oceanBreezeImg from '../assets/images/villa-images/ocean-breeze-villa.webp';
 import blueHorizonImg from '../assets/images/villa-images/blue-horizon-villa.jpg';
 
+import {getDocs, collection} from 'firebase/firestore'; 
+import { db } from '../firebase';
+
+export async function fetchDataFromFirestore() {
+ const villaSnapshot = await getDocs(collection(db, "villas"));
+const availableVillas = villaSnapshot.docs
+
+  availableVillas.map((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
+}
 const villas = [
   {
     id: 1,
@@ -166,12 +180,14 @@ const villas = [
 ];
 
 const RoomCard = () => {
-  const [openVilla, setOpenVilla] = useState(null);
+  const [openVilla, setOpenVilla] = useState(null); //Modal Popup
 
+  //Opens Modal
   const handleOpen = (villa) => {
     setOpenVilla(villa);
   };
 
+  // Closes Modal
   const handleClose = () => {
     setOpenVilla(null);
   };
@@ -375,7 +391,9 @@ const RoomCard = () => {
           </>
         )}
       </Dialog>
+
     </Box>
+  
   );
 };
 

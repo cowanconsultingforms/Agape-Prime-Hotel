@@ -1,4 +1,7 @@
 import React from 'react';
+import FoodCarousel from '../components/FoodCarousel';
+
+
 
 const cardStyle = {
   background: 'rgba(255, 255, 255, 0.05)',
@@ -174,6 +177,7 @@ const PBPavilion = () => {
           </div>
         ))}
       </div>
+      <FoodCarousel></FoodCarousel>
     </div>
   );
 };

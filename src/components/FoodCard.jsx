@@ -69,7 +69,8 @@ const FoodCard = () => {
     <Typography variant="h4" align="center" gutterBottom>
         Provisions
     </Typography>
-    <Grid> 
+    <Grid>
+       
       
     </Grid>
     </Box>

@@ -1,7 +1,9 @@
+"use client"
+
 import { useState, useEffect } from 'react';
 import { db } from '../firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { addDoc, doc, updateDoc } from 'firebase/firestore';
+import { collection, getDocs, query, where, doc, updateDoc, getDoc} from 'firebase/firestore';
+import { addDoc} from 'firebase/firestore';
 import './ReservationForm.css';
 import coralImage from "../assets/images/coralpicAGAPE.jpg";
 
@@ -18,21 +20,11 @@ export default function ReservationForm() {
     const [availableVillas, setAvailableVillas] = useState([]);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState(null);
-
-    useEffect(() => {
-        const fetchAvailableVillas = async () => {
-            try {
-                const q = query(collection(db, 'villas'), where('available', '==', true));
-                const snapshot = await getDocs(q);
-                const villas = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                setAvailableVillas(villas);
-            } catch (error) {
-                console.error('Error fetching villas:', error);
-            }
-        };
-
-        fetchAvailableVillas();
-    }, []);
+useEffect(() => {
+  getDocs(collection(db, "villas")).then(snapshot => {
+    console.log("villas:", snapshot.docs.map(d => d.data()));
+  }).catch(err => console.error("🔥 Firestore error:", err));
+}, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,7 +35,7 @@ export default function ReservationForm() {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // prevents refresh
         setIsSubmitting(true);
         setSubmitMessage(null);
 
