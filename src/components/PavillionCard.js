@@ -21,7 +21,7 @@ const PavillionCard = ({ event, priceColor }) => {
                     justifyContent: 'flex-start',
                     alignItems: 'center',
                     textAlign: 'center',
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: "Arial, Helvetica, sans-serif",
                     color: '#fff',
                     margin: '0 auto'
                 }}

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/images/agapeprimehotelLOGO.png";
+import logo from "../assets/images/agapeLOGO.png";
 import { useAuth } from "../AuthContext";
 
 function Navbar() {
   const fontStyle = {
-    fontFamily: "'Cormorant Garamond', serif",
-    letterSpacing: "0.5px",
-    fontSize: "1.15rem",
+    fontFamily: "'Inter', sans-serif",
     fontWeight: 575,
+    letterSpacing: "0.25px",
+    fontSize: "1.03rem",
   };
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
@@ -49,7 +49,7 @@ function Navbar() {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/rooms" style={fontStyle}>
-                Villas/Suites
+                Suites/Villas
               </Link>
             </li>
             <li className="nav-item">
@@ -62,11 +62,36 @@ function Navbar() {
                 PB Pavilion
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/booking" style={fontStyle}>
+            {/* BOOKING DROPDOWN */}
+            <li className="nav-item dropdown">
+              <span
+                className="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={fontStyle}
+              >
                 Booking
-              </Link>
+              </span>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link className="dropdown-item" to="/booking" style={fontStyle}>
+                    Reserve a Suite/Villa
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/wellness" style={fontStyle}>
+                    Reserve Wellness Center
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/pbpavilion" style={fontStyle}>
+                    Reserve PB Pavilion
+                  </Link>
+                </li>
+              </ul>
             </li>
+            {/* END BOOKING DROPDOWN */}
             <li className="nav-item">
               <Link
                 className="nav-link"

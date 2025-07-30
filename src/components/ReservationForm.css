@@ -36,7 +36,7 @@
     font-weight: 600;
     letter-spacing: 1px;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
     position: relative;
     z-index: 2;
@@ -48,12 +48,12 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .reservation-form * {
     color: white !important;
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: Arial, Helvetica, sans-serif !important;
     font-weight: 1200;
 }
 

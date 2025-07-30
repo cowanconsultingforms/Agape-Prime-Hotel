@@ -86,7 +86,7 @@ export default function Home() {
                     <Typography
                       variant="h6"
                       align="center"
-                      sx={{ color: 'white', fontFamily: "'Cormorant Garamond', serif" }}
+                      sx={{ color: 'white', fontFamily: "Arial, Helvetica, sans-serif" }}
                     >
                       {item.label}
                     </Typography>
