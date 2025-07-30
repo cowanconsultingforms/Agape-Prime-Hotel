@@ -11,6 +11,10 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
 
+// *** Import your new form components ***
+import WellnessReservationForm from "./components/WellnessReservationForm";
+import PBPavilionReservationForm from "./components/PBPavilionReservationForm";
+
 function App() {
     return (
         <AuthProvider>
@@ -22,6 +26,9 @@ function App() {
                     <Route path="/wellness" element={<Wellness />} />
                     <Route path="/pbpavilion" element={<PBPavilion />} />
                     <Route path="/booking" element={<Booking />} />
+                    {/* New reservation form routes */}
+                    <Route path="/reserve-wellness" element={<WellnessReservationForm />} />
+                    <Route path="/reserve-pavilion" element={<PBPavilionReservationForm />} />
                     {/* Allow both hyphen and no-hyphen for sign in/up */}
                     <Route path="/signin" element={<SignIn />} />
                     <Route path="/sign-in" element={<SignIn />} />

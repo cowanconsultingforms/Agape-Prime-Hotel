@@ -36,7 +36,7 @@
     font-weight: 600;
     letter-spacing: 1px;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
     position: relative;
     z-index: 2;
@@ -48,12 +48,12 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .reservation-form * {
     color: white !important;
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: Arial, Helvetica, sans-serif !important;
     font-weight: 1200;
 }
 
@@ -152,4 +152,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .reservation-form h2 {
         font-size: 1.3rem;
     }
+}
+
+.reservation-form-container.wellness::before {
+    background-image: url('../assets/images/wellness-images/blackrockonback.jpg');
+}
+
+/* For PB Pavilion form */
+.reservation-form-container.pavilion::before {
+    background-image: url('../assets/images/PBPavillion-Images/winepic.jpg');
+}
+
+/* Make only the select (dropdown) text and options black */
+.reservation-form select,
+.reservation-form select option {
+    color: #111 !important;
+    background: rgba(255, 255, 255, 0.90);
+    /* Optional: better contrast */
+}
+
+/* Placeholder option (when value is "") styling */
+.reservation-form select option[value=""] {
+    color: #888 !important;
 }

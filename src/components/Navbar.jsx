@@ -6,10 +6,10 @@ import { useAuth } from "../AuthContext";
 
 function Navbar() {
   const fontStyle = {
-    fontFamily: "'Cormorant Garamond', serif",
-    letterSpacing: "0.5px",
-    fontSize: "1.15rem",
+    fontFamily: "'Inter', sans-serif",
     fontWeight: 575,
+    letterSpacing: "0.25px",
+    fontSize: "1.03rem",
   };
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
@@ -65,11 +65,36 @@ function Navbar() {
                 PB Pavilion
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/booking" style={fontStyle}>
-                Book
-              </Link>
+            {/* BOOKING DROPDOWN */}
+            <li className="nav-item dropdown">
+              <span
+                className="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={fontStyle}
+              >
+                Booking
+              </span>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link className="dropdown-item" to="/booking" style={fontStyle}>
+                    Reserve a Suite/Villa
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/reserve-wellness" style={fontStyle}>
+                    Reserve Wellness Center
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/reserve-pavilion" style={fontStyle}>
+                    Reserve PB Pavilion
+                  </Link>
+                </li>
+              </ul>
             </li>
+            {/* END BOOKING DROPDOWN */}
             <li className="nav-item">
               <Link
                 className="nav-link"

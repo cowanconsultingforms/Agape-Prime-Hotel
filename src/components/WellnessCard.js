@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import {
   Card,
@@ -10,6 +9,8 @@ import {
   Button
 } from '@mui/material';
 
+import { useNavigate } from 'react-router-dom'; 
+
 import massageImg from '../assets/images/wellness-images/massageback.jpg';
 import headSpaImg from '../assets/images/wellness-images/headspa.png';
 import facialsImg from '../assets/images/wellness-images/facialsImg.jpg';
@@ -17,7 +18,7 @@ import bodyTreatmentsImg from '../assets/images/wellness-images/blackrockonback.
 import scrubsImg from '../assets/images/wellness-images/facemask.jpg';
 import expressImg from '../assets/images/wellness-images/expressImg.jpg';
 import bathSaunaImg from '../assets/images/wellness-images/lemonsonwater.jpg';
-
+import agapepoolImg from "../assets/images/wellness-images/agapepool.jpg";
 
 const wellnessServices = [
   {
@@ -69,47 +70,146 @@ const wellnessServices = [
     image: bathSaunaImg,
     description: 'Full private spa experiences with all the amenities.',
   },
+  {
+    id: 8,
+    name: 'Agape Pool Experience',
+    subtitle: 'Private Pool & Wellness',
+    image: agapepoolImg,
+    description: 'Relax and rejuvenate at our luxurious pool with exclusive wellness services, refreshments, and stunning views.',
+  },
 ];
 
-// ✅ Your component function
-const WellnessCard = () => (
-  <Box sx={{ padding: 4 }}>
-    <Typography variant="h4" align="center" gutterBottom>
-      Wellness Services
-    </Typography>
-    <Typography variant="subtitle1" align="center" color="text.secondary">
-      Relax, recharge, and rejuvenate with our full service spa offerings.
-    </Typography>
 
-    <Grid container spacing={4} mt={2}>
-      {wellnessServices.map((service) => (
-        <Grid item key={service.id} xs={12} sm={6} md={4} lg={3} sx={{ display: 'flex' }}>
-          <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <CardMedia
-              component="img"
-              image={service.image}
-              alt={service.name}
-              sx={{ height: 200, objectFit: 'cover' }}
-            />
-            <CardContent sx={{ flexGrow: 1 }}>
-              <Typography variant="h6">{service.name}</Typography>
-              <Typography variant="subtitle2" color="text.secondary">
-                {service.subtitle}
-              </Typography>
-              <Typography variant="body2" mt={1}>
-                {service.description}
-              </Typography>
-            </CardContent>
+const CARD_WIDTH = 320;
+const CARD_HEIGHT = 390;
+const IMAGE_HEIGHT = 170;
+const INTER_FONT = "'Inter', Arial, Helvetica, sans-serif";
 
-            <Box sx={{ p: 2 }}>
-              <Button variant="contained" fullWidth>Book Now</Button>
-            </Box>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
-  </Box>
-);
+
+const WellnessCard = () => {
+  const navigate = useNavigate(); // ✅ MUST be inside the function
+
+  return (
+    <Box
+      sx={{
+        px: { xs: 2, md: 0 },
+        py: 4,
+        width: "100%",
+        maxWidth: 1360,
+        margin: "0 auto",
+        fontFamily: INTER_FONT,
+      }}
+    >
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ fontFamily: INTER_FONT, fontWeight: 700 }}
+      >
+        Wellness Services
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        align="center"
+        color="text.secondary"
+        sx={{ fontFamily: INTER_FONT }}
+      >
+        Relax, recharge, and rejuvenate with our full service spa offerings.
+      </Typography>
+      <Grid
+        container
+        spacing={3}
+        justifyContent="center"
+        alignItems="stretch"
+        sx={{ fontFamily: INTER_FONT }}
+      >
+        {wellnessServices.map((service) => (
+          <Grid
+            item
+            key={service.id}
+            xs={12}
+            sm={6}
+            md={3}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            sx={{ fontFamily: INTER_FONT }}
+          >
+            <Card
+              sx={{
+                width: `${CARD_WIDTH}px`,
+                height: `${CARD_HEIGHT}px`,
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: 3,
+                boxShadow: 4,
+                background: "#fff",
+                fontFamily: INTER_FONT,
+              }}
+            >
+              <CardMedia
+                component="img"
+                image={service.image}
+                alt={service.name}
+                sx={{
+                  height: IMAGE_HEIGHT,
+                  objectFit: "cover",
+                  borderTopLeftRadius: 12,
+                  borderTopRightRadius: 12,
+                }}
+              />
+              <CardContent sx={{ flexGrow: 1, pb: 1, fontFamily: INTER_FONT }}>
+                <Typography
+                  variant="h6"
+                  align="center"
+                  fontWeight={700}
+                  sx={{ fontFamily: INTER_FONT }}
+                >
+                  {service.name}
+                </Typography>
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  align="center"
+                  fontWeight={500}
+                  sx={{ fontFamily: INTER_FONT }}
+                >
+                  {service.subtitle}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  mt={1}
+                  align="center"
+                  color="text.secondary"
+                  sx={{ fontFamily: INTER_FONT }}
+                >
+                  {service.description}
+                </Typography>
+              </CardContent>
+              <Box sx={{ p: 2, pt: 0 }}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{
+                    borderRadius: 2,
+                    fontWeight: 700,
+                    fontSize: "1rem",
+                    background: "#1643a1",
+                    fontFamily: INTER_FONT,
+                    ":hover": { background: "#0d1a4b" },
+                  }}
+                  onClick={() => navigate("/reserve-wellness")}
+                >
+                  BOOK NOW
+                </Button>
+              </Box>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+};
+
 
 export default WellnessCard;
-
