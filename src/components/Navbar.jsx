@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/agapeprimehotelLOGO.png";
+import image from "../assets/images/image.png" 
 import { useAuth } from "../AuthContext";
 
 function Navbar() {
@@ -21,7 +22,8 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-sm bg-light navbar-light" style={fontStyle}>
       <div className="container-fluid">
-        <img
+         <a class="navbar-brand" href="#">
+           <img
           src={logo}
           alt="Agape Prime Hotel Logo"
           onClick={() => navigate("/")}
@@ -32,7 +34,8 @@ function Navbar() {
             cursor: "pointer",
             objectFit: "contain"
           }}
-        />
+        /> </a> 
+      
 
         <button
           className="navbar-toggler"
@@ -49,7 +52,7 @@ function Navbar() {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/rooms" style={fontStyle}>
-                Villas/Suites
+                Suites/Villas
               </Link>
             </li>
             <li className="nav-item">

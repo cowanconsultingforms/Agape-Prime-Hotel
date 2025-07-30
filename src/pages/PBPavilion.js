@@ -7,6 +7,7 @@ import sushihouse from '../assets/images/PBPavillion-Images/sushihouse.png';
 import inhomesushi from '../assets/images/PBPavillion-Images/inhomesushi.png';
 import tunaspectacle from '../assets/images/PBPavillion-Images/tunaspectacle.png';
 import sushiclass from '../assets/images/PBPavillion-Images/sushiclass.png';
+import FoodCarousel from '../components/FoodCarousel';
 
 const priceColors = ['#FFC300', '#FF5733', '#28B463', '#5DADE2', '#AF7AC5', '#F39C12'];
 
@@ -124,6 +125,7 @@ const PBPavilion = () => {
                     />
                 ))}
             </div>
+            <FoodCarousel></FoodCarousel>
         </div>
     );
 };

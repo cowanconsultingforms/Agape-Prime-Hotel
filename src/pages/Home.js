@@ -97,7 +97,7 @@ export default function Home() {
           ))}
         </Box>
       </Box>
-    <div className="home-footer">
+  <div className="home-footer">
       <p>info@agapeprimehotel.com</p>
       <p>© Agape Prime Hotel, Inc. 2025–Present. All rights reserved.</p>
       <p>XXX TBD Road, Belize City, Belize XXXXX</p>

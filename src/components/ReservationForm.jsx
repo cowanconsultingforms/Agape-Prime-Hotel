@@ -21,9 +21,28 @@ export default function ReservationForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState(null);
 useEffect(() => {
-  getDocs(collection(db, "villas")).then(snapshot => {
-    console.log("villas:", snapshot.docs.map(d => d.data()));
-  }).catch(err => console.error("🔥 Firestore error:", err));
+  const fetchAvailableVillas = async () => {
+    try {
+      const villasRef = collection(db, "villas");
+      const q = query(villasRef, where("available", "==", true)); // optional filter
+
+      const querySnap = await getDocs(q);
+      let villas = [];
+
+      querySnap.forEach((doc) => {
+        villas.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+
+      setAvailableVillas(villas);
+    } catch (error) {
+      console.error("Error fetching villas:", error);
+    }
+  };
+
+  fetchAvailableVillas();
 }, []);
 
     const handleChange = (e) => {

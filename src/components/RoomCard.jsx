@@ -207,7 +207,7 @@ const RoomCard = () => {
             textShadow: '0 2px 18px #fff6',
           }}
         >
-          Our Signature Villas & Suites
+          Our Signature Suites & Villas
         </Typography>
         <Box
           sx={{
@@ -222,7 +222,7 @@ const RoomCard = () => {
         <Typography
           variant="h5"
           sx={{
-            color: '#455a64',
+            color: '#263238',
             maxWidth: 640,
             mx: 'auto',
             fontWeight: 500,
