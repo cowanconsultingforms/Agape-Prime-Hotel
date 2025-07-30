@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const INTER_FONT = "'Inter', Arial, Helvetica, sans-serif";
+
 const PavillionCard = ({ event, priceColor }) => {
     const [showPopup, setShowPopup] = useState(false);
 
@@ -21,7 +23,7 @@ const PavillionCard = ({ event, priceColor }) => {
                     justifyContent: 'flex-start',
                     alignItems: 'center',
                     textAlign: 'center',
-                    fontFamily: "Arial, Helvetica, sans-serif",
+                    fontFamily: INTER_FONT,
                     color: '#fff',
                     margin: '0 auto'
                 }}
@@ -47,19 +49,21 @@ const PavillionCard = ({ event, priceColor }) => {
                         style={{
                             width: '100%',
                             height: '100%',
-                            objectFit: 'cover'
+                            objectFit: 'cover',
+                            fontFamily: INTER_FONT
                         }}
                     />
                 </div>
 
-                <h2 style={{ fontSize: '2rem', marginBottom: 8 }}>{event.title}</h2>
+                <h2 style={{ fontSize: '2rem', marginBottom: 8, fontFamily: INTER_FONT, fontWeight: 700 }}>{event.title}</h2>
 
                 <p
                     style={{
                         fontWeight: 600,
                         marginBottom: 16,
                         color: priceColor,
-                        fontSize: '1.1rem'
+                        fontSize: '1.1rem',
+                        fontFamily: INTER_FONT
                     }}
                 >
                     {event.price}
@@ -72,13 +76,14 @@ const PavillionCard = ({ event, priceColor }) => {
                         fontSize: '1rem',
                         lineHeight: '1.6',
                         textAlign: 'left',
-                        maxWidth: '320px'
+                        maxWidth: '320px',
+                        fontFamily: INTER_FONT
                     }}
                 >
                     {event.details.map((item, i) => (
                         <li key={i}>
-                            <span style={{ color: '#000', marginRight: 8 }}>•</span>
-                            <span style={{ color: '#fff' }}>{item}</span>
+                            <span style={{ color: '#000', marginRight: 8, fontFamily: INTER_FONT }}>•</span>
+                            <span style={{ color: '#fff', fontFamily: INTER_FONT }}>{item}</span>
                         </li>
                     ))}
                 </ul>
@@ -92,10 +97,12 @@ const PavillionCard = ({ event, priceColor }) => {
                         border: '1px solid rgba(255,255,255,0.2)',
                         borderRadius: '8px',
                         color: '#fff',
-                        fontWeight: 'bold',
+                        fontWeight: 700,
+                        fontFamily: INTER_FONT,
                         cursor: 'pointer',
                         transition: 'background 0.3s ease',
-                        marginTop: '20px'
+                        marginTop: '20px',
+                        letterSpacing: 0.3
                     }}
                     onMouseOver={(e) =>
                         (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)')}
@@ -121,7 +128,8 @@ const PavillionCard = ({ event, priceColor }) => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         zIndex: 9999,
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        fontFamily: INTER_FONT
                     }}
                 >
                     <img
@@ -131,7 +139,8 @@ const PavillionCard = ({ event, priceColor }) => {
                             maxWidth: '90vw',
                             maxHeight: '90vh',
                             borderRadius: '12px',
-                            boxShadow: '0 0 20px #000'
+                            boxShadow: '0 0 20px #000',
+                            fontFamily: INTER_FONT
                         }}
                     />
                 </div>

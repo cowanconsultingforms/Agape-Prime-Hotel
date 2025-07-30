@@ -80,12 +80,12 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/wellness" style={fontStyle}>
+                  <Link className="dropdown-item" to="/reserve-wellness" style={fontStyle}>
                     Reserve Wellness Center
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/pbpavilion" style={fontStyle}>
+                  <Link className="dropdown-item" to="/reserve-pavilion" style={fontStyle}>
                     Reserve PB Pavilion
                   </Link>
                 </li>

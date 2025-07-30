@@ -153,3 +153,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         font-size: 1.3rem;
     }
 }
+
+.reservation-form-container.wellness::before {
+    background-image: url('../assets/images/wellness-images/blackrockonback.jpg');
+}
+
+/* For PB Pavilion form */
+.reservation-form-container.pavilion::before {
+    background-image: url('../assets/images/PBPavillion-Images/winepic.jpg');
+}
+
+/* Make only the select (dropdown) text and options black */
+.reservation-form select,
+.reservation-form select option {
+    color: #111 !important;
+    background: rgba(255, 255, 255, 0.90);
+    /* Optional: better contrast */
+}
+
+/* Placeholder option (when value is "") styling */
+.reservation-form select option[value=""] {
+    color: #888 !important;
+}

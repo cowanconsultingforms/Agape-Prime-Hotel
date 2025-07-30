@@ -15,6 +15,8 @@ import roomCardImg from '../assets/images/villas-suites-bubble.jpg';
 import wellnessCenterImg from '../assets/images/wellnesscenter.jpg';
 import pbPavilionImg from '../assets/images/pbpavilionbar.jpg';
 
+const INTER_FONT = "'Inter', Arial, Helvetica, sans-serif";
+
 export default function Home() {
   const cards = [
     { img: roomCardImg, label: 'Reserve a Suite/Villa', to: '/rooms' },
@@ -23,7 +25,7 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ position: "relative", overflowX: "hidden" }}>
+    <div style={{ position: "relative", overflowX: "hidden", fontFamily: INTER_FONT }}>
       <video
         autoPlay
         muted
@@ -52,6 +54,7 @@ export default function Home() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          fontFamily: INTER_FONT,
         }}
       >
         <Box
@@ -60,6 +63,7 @@ export default function Home() {
             gap: 4,
             flexWrap: 'wrap',
             justifyContent: 'center',
+            fontFamily: INTER_FONT,
           }}
         >
           {cards.map((item, index) => (
@@ -75,18 +79,33 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <Card sx={{ width: { xs: 280, sm: 320, md: 350 }, position: 'relative', color: 'white' }}>
+                <Card sx={{
+                  width: { xs: 280, sm: 320, md: 350 },
+                  position: 'relative',
+                  color: 'white',
+                  fontFamily: INTER_FONT,
+                }}>
                   <CardMedia
                     component="img"
                     image={item.img}
                     height="300"
                     sx={{ filter: 'brightness(0.7)' }}
                   />
-                  <CardContent sx={{ position: 'absolute', bottom: 16, width: '100%' }}>
+                  <CardContent sx={{
+                    position: 'absolute',
+                    bottom: 16,
+                    width: '100%',
+                    fontFamily: INTER_FONT,
+                  }}>
                     <Typography
                       variant="h6"
                       align="center"
-                      sx={{ color: 'white', fontFamily: "Arial, Helvetica, sans-serif" }}
+                      sx={{
+                        color: 'white',
+                        fontFamily: INTER_FONT,
+                        fontWeight: 600,
+                        letterSpacing: 0.2,
+                      }}
                     >
                       {item.label}
                     </Typography>
@@ -97,13 +116,13 @@ export default function Home() {
           ))}
         </Box>
       </Box>
-    <div className="home-footer">
-      <p>info@agapeprimehotel.com</p>
-      <p>© Agape Prime Hotel, Inc. 2025–Present. All rights reserved.</p>
-      <p>XXX TBD Road, Belize City, Belize XXXXX</p>
-      <p>Phone: 1-877-732-3492 | Fax: 1-877-760-2763 / 1-718-771-5900</p>
-      <p className="footer-note">Agape Prime Hotel logos are trademarks of Agape Prime, LLC. All information is deemed reliable but not guaranteed.</p>
-    </div>
+      <div className="home-footer" style={{ fontFamily: INTER_FONT }}>
+        <p>info@agapeprimehotel.com</p>
+        <p>© Agape Prime Hotel, Inc. 2025–Present. All rights reserved.</p>
+        <p>XXX TBD Road, Belize City, Belize XXXXX</p>
+        <p>Phone: 1-877-732-3492 | Fax: 1-877-760-2763 / 1-718-771-5900</p>
+        <p className="footer-note">Agape Prime Hotel logos are trademarks of Agape Prime, LLC. All information is deemed reliable but not guaranteed.</p>
+      </div>
     </div>
   );
 }
