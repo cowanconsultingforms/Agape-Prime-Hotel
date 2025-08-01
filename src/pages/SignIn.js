@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../firebase";
+import { auth, googleProvider } from "../config/firebase";
 import { toast } from "react-toastify";
 import "../css/Auth.css";
+
 
 const INTER_FONT = "'Inter', Arial, Helvetica, sans-serif";
 

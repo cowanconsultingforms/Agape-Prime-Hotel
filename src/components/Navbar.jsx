@@ -24,11 +24,11 @@ function Navbar() {
       <div className="container-fluid">
          <a class="navbar-brand" href="#">
            <img
-          src={logo}
+          src={image}
           alt="Agape Prime Hotel Logo"
           onClick={() => navigate("/")}
           style={{
-            height: "50px",
+            height: "80px",
             width: "auto",
             maxWidth: "240px",
             cursor: "pointer",

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ReservationForm.css";
+import { collection, getDocs} from "firebase/firestore";
+import { db } from '../config/firebase';
 
 const pavilionOptions = [
-    { label: "Legacy Lounge: Baldwin & Bubbles — $100+ PER PERSON", value: "Legacy Lounge: Baldwin & Bubbles" },
+    { label: "Legacy Lounge: Baldwin & Bubbles — $100+ PER PERSON", value: "Legacy Lounge: Baldwin & Bubbles", guests: 6},
     { label: "Civic Spirit: Hamilton Pour — $110+ PER PERSON", value: "Civic Spirit: Hamilton Pour" },
     { label: "Island Revival: Garifuna Gold — $125+ PER PERSON", value: "Island Revival: Garifuna Gold" },
     { label: "Prime Roots: Agape Garden Table — $135+ PER PERSON", value: "Prime Roots: Agape Garden Table" },
@@ -10,7 +12,23 @@ const pavilionOptions = [
     { label: "Liberation Fire: Maroon Feast — $160+ PER PERSON", value: "Liberation Fire: Maroon Feast" },
 ];
 
+
+
 export default function PBPavilionReservationForm() {
+
+
+
+  useEffect(() => {
+  const fetchExperiences = async () => {
+    const querySnapshot = await getDocs(collection(db, "pavilionExperiences"));
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+    });
+  };
+
+  fetchExperiences(); // Call the async function
+}, []);
+
     const [formData, setFormData] = useState({
         name: "",
         date: "",

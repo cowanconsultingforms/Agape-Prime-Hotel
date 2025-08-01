@@ -87,8 +87,7 @@ const INTER_FONT = "'Inter', Arial, Helvetica, sans-serif";
 
 
 const WellnessCard = () => {
-  const navigate = useNavigate(); // ✅ MUST be inside the function
-
+  const navigate = useNavigate(); 
   return (
     <Box
       sx={{

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import { db } from '../firebase';
+import { db } from '../config/firebase';
 import { collection, getDocs, query, where, doc, updateDoc, getDoc} from 'firebase/firestore';
 import { addDoc} from 'firebase/firestore';
 import './ReservationForm.css';
