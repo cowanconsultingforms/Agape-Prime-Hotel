@@ -239,7 +239,12 @@ const RoomCard = () => {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: {
+  xs: '1fr',      // 1 column on phones
+  sm: 'repeat(2, 1fr)', // 2 columns on small tablets
+  md: 'repeat(3, 1fr)', // 3 columns on tablets/laptops
+  lg: 'repeat(4, 1fr)', // 4 columns on desktops
+},
           gap: 4,
           mt: 2,
           justifyItems: 'center',
