@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/images/agapeLOGO.png";
+import logo from "../assets/images/agapelogo.png";
 import { useAuth } from "../AuthContext";
 
 function Navbar() {

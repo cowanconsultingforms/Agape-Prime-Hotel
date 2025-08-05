@@ -9,6 +9,7 @@ const wellnessOptions = [
     "Scrubs",
     "Express Treatments",
     "Bath/Sauna Rental",
+    "Other",
 ];
 
 export default function WellnessReservationForm() {
