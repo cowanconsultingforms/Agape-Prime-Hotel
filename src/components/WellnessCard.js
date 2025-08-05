@@ -14,7 +14,7 @@ import massageImg from '../assets/images/wellness-images/massageback.jpg';
 import headSpaImg from '../assets/images/wellness-images/headspa.png';
 import facialsImg from '../assets/images/wellness-images/facialsImg.jpg';
 import bodyTreatmentsImg from '../assets/images/wellness-images/blackrockonback.jpg';
-import scrubsImg from '../assets/images/wellness-images/facemask.jpg';
+import scrubsImg from '../assets/images/wellness-images/scrub.webp';
 import expressImg from '../assets/images/wellness-images/expressImg.jpg';
 import bathSaunaImg from '../assets/images/wellness-images/lemonsonwater.jpg';
 import agapepoolImg from "../assets/images/wellness-images/agapepool.jpg";

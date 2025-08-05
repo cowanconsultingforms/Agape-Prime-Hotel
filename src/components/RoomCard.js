@@ -176,6 +176,9 @@ const interFont = {
   letterSpacing: "0.25px"
 };
 
+const CORMORANT_FONT = "'Cormorant Garamond', serif";
+
+
 const RoomCard = () => {
   const [openVilla, setOpenVilla] = useState(null);
 
@@ -194,15 +197,15 @@ const RoomCard = () => {
         <Typography
           variant="h2"
           sx={{
-            ...interFont,
+            ...CORMORANT_FONT,
             fontWeight: 800,
             letterSpacing: 2,
-            color: '#263238',
+            color: '#414040ff',
             mb: 1,
             textShadow: '0 2px 18px #fff6',
           }}
         >
-          Our Signature Villas & Suites
+          Suites/Villas
         </Typography>
         <Box
           sx={{
@@ -218,10 +221,10 @@ const RoomCard = () => {
           variant="h5"
           sx={{
             ...interFont,
-            color: '#455a64',
+            color: '#000000ff',
             maxWidth: 640,
             mx: 'auto',
-            fontWeight: 500,
+            fontWeight: 400,
             letterSpacing: 1,
             mb: 2,
             lineHeight: 1.4,
