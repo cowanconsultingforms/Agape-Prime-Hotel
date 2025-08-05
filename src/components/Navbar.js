@@ -30,7 +30,7 @@ function Navbar() {
             width: "auto",
             maxWidth: "240px",
             cursor: "pointer",
-            objectFit: "contain"
+            objectFit: "contain",
           }}
         />
 
@@ -45,6 +45,7 @@ function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
@@ -62,6 +63,7 @@ function Navbar() {
                 PB Pavilion
               </Link>
             </li>
+
             {/* BOOKING DROPDOWN */}
             <li className="nav-item dropdown">
               <span
@@ -92,6 +94,7 @@ function Navbar() {
               </ul>
             </li>
             {/* END BOOKING DROPDOWN */}
+
             <li className="nav-item">
               <Link
                 className="nav-link"
@@ -114,6 +117,8 @@ function Navbar() {
                 Contact
               </Link>
             </li>
+
+            {/* ACCOUNT DROPDOWN */}
             <li className="nav-item dropdown">
               <span
                 className="nav-link dropdown-toggle"
@@ -125,6 +130,11 @@ function Navbar() {
                 Account
               </span>
               <ul className="dropdown-menu">
+                <li>
+                  <Link className="dropdown-item" to="/points" style={fontStyle}>
+                    Points
+                  </Link>
+                </li>
                 {currentUser ? (
                   <li>
                     <button
@@ -151,6 +161,7 @@ function Navbar() {
                 )}
               </ul>
             </li>
+            {/* END ACCOUNT DROPDOWN */}
           </ul>
         </div>
       </div>

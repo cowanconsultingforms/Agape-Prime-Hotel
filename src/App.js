@@ -10,6 +10,7 @@ import Booking from "./pages/Booking";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ViewRoomDetails from "./pages/ViewRoomDetails";
+import Points from "./pages/Points";
 
 // *** Import your new form components ***
 import WellnessReservationForm from "./components/WellnessReservationForm";
@@ -32,6 +33,7 @@ function App() {
                     {/* Allow both hyphen and no-hyphen for sign in/up */}
                     <Route path="/signin" element={<SignIn />} />
                     <Route path="/sign-in" element={<SignIn />} />
+                    <Route path="/points" element={<Points />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/sign-up" element={<SignUp />} />
                     <Route path="/room/:id" element={<ViewRoomDetails />} />
