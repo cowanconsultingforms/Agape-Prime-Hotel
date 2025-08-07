@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const INTER_FONT = "'Inter', Arial, Helvetica, sans-serif";
 
-const PavillionCard = ({ event, priceColor }) => {
+const PavillionCard = ({ event, priceColor, fontColor = '#111' }) => {
     const [showPopup, setShowPopup] = useState(false);
 
     return (
@@ -24,7 +25,7 @@ const PavillionCard = ({ event, priceColor }) => {
                     alignItems: 'center',
                     textAlign: 'center',
                     fontFamily: INTER_FONT,
-                    color: '#fff',
+                    color: fontColor,
                     margin: '0 auto'
                 }}
             >
@@ -55,7 +56,17 @@ const PavillionCard = ({ event, priceColor }) => {
                     />
                 </div>
 
-                <h2 style={{ fontSize: '2rem', marginBottom: 8, fontFamily: INTER_FONT, fontWeight: 700 }}>{event.title}</h2>
+                <h2
+                    style={{
+                        fontSize: '2rem',
+                        marginBottom: 8,
+                        fontFamily: INTER_FONT,
+                        fontWeight: 700,
+                        color: fontColor
+                    }}
+                >
+                    {event.title}
+                </h2>
 
                 <p
                     style={{
@@ -77,40 +88,43 @@ const PavillionCard = ({ event, priceColor }) => {
                         lineHeight: '1.6',
                         textAlign: 'left',
                         maxWidth: '320px',
-                        fontFamily: INTER_FONT
+                        fontFamily: INTER_FONT,
+                        color: fontColor
                     }}
                 >
                     {event.details.map((item, i) => (
                         <li key={i}>
-                            <span style={{ color: '#000', marginRight: 8, fontFamily: INTER_FONT }}>•</span>
-                            <span style={{ color: '#fff', fontFamily: INTER_FONT }}>{item}</span>
+                            <span style={{ color: fontColor, marginRight: 8, fontFamily: INTER_FONT }}>•</span>
+                            <span style={{ color: fontColor, fontFamily: INTER_FONT }}>{item}</span>
                         </li>
                     ))}
                 </ul>
 
                 <div style={{ flexGrow: 1 }} />
 
-                <button
-                    style={{
-                        padding: '10px 24px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        border: '1px solid rgba(255,255,255,0.2)',
-                        borderRadius: '8px',
-                        color: '#fff',
-                        fontWeight: 700,
-                        fontFamily: INTER_FONT,
-                        cursor: 'pointer',
-                        transition: 'background 0.3s ease',
-                        marginTop: '20px',
-                        letterSpacing: 0.3
-                    }}
-                    onMouseOver={(e) =>
-                        (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)')}
-                    onMouseOut={(e) =>
-                        (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)')}
-                >
-                    Reserve Now
-                </button>
+                <Link to="/reserve-pavilion" style={{ textDecoration: 'none' }}>
+                    <button
+                        style={{
+                            padding: '10px 24px',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            borderRadius: '8px',
+                            color: fontColor,
+                            fontWeight: 700,
+                            fontFamily: INTER_FONT,
+                            cursor: 'pointer',
+                            transition: 'background 0.3s ease',
+                            marginTop: '20px',
+                            letterSpacing: 0.3
+                        }}
+                        onMouseOver={(e) =>
+                            (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)')}
+                        onMouseOut={(e) =>
+                            (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)')}
+                    >
+                        Reserve Now
+                    </button>
+                </Link>
             </div>
 
             {/* Fullscreen Image Popup */}

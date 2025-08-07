@@ -8,14 +8,13 @@ import {
   Box,
   Button
 } from '@mui/material';
-
-import { useNavigate } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 import massageImg from '../assets/images/wellness-images/massageback.jpg';
 import headSpaImg from '../assets/images/wellness-images/headspa.png';
 import facialsImg from '../assets/images/wellness-images/facialsImg.jpg';
 import bodyTreatmentsImg from '../assets/images/wellness-images/blackrockonback.jpg';
-import scrubsImg from '../assets/images/wellness-images/facemask.jpg';
+import scrubsImg from '../assets/images/wellness-images/scrub.webp';
 import expressImg from '../assets/images/wellness-images/expressImg.jpg';
 import bathSaunaImg from '../assets/images/wellness-images/lemonsonwater.jpg';
 import agapepoolImg from "../assets/images/wellness-images/agapepool.jpg";
@@ -79,136 +78,148 @@ const wellnessServices = [
   },
 ];
 
-
 const CARD_WIDTH = 320;
 const CARD_HEIGHT = 390;
 const IMAGE_HEIGHT = 170;
 const INTER_FONT = "'Inter', Arial, Helvetica, sans-serif";
 
-
-const WellnessCard = () => {
-  const navigate = useNavigate(); 
-  return (
-    <Box
+const WellnessCard = () => (
+  <Box sx={{
+    px: { xs: 2, md: 0 },
+    py: 4,
+    width: "100%",
+    maxWidth: 1360,
+    margin: "0 auto",
+    fontFamily: INTER_FONT,
+  }}>
+    {/* Heading styled to match Rooms.js exactly, with Inter font everywhere */}
+    <Typography
+      variant="h2"
+      align="center"
+      gutterBottom
       sx={{
-        px: { xs: 2, md: 0 },
-        py: 4,
-        width: "100%",
-        maxWidth: 1360,
-        margin: "0 auto",
         fontFamily: INTER_FONT,
+        fontWeight: 800,
+        letterSpacing: 2,
+        color: '#263238',
+        mb: 1,
+        textShadow: '0 2px 18px #fff6',
+        textAlign: 'center',
       }}
     >
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
-        sx={{ fontFamily: INTER_FONT, fontWeight: 700 }}
-      >
-        Wellness Services
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        align="center"
-        color="text.secondary"
-        sx={{ fontFamily: INTER_FONT }}
-      >
-        Relax, recharge, and rejuvenate with our full service spa offerings.
-      </Typography>
-      <Grid
-        container
-        spacing={3}
-        justifyContent="center"
-        alignItems="stretch"
-        sx={{ fontFamily: INTER_FONT }}
-      >
-        {wellnessServices.map((service) => (
-          <Grid
-            item
-            key={service.id}
-            xs={12}
-            sm={6}
-            md={3}
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            sx={{ fontFamily: INTER_FONT }}
+      Wellness Services
+    </Typography>
+    <Typography
+      variant="h5"
+      align="center"
+      sx={{
+        fontFamily: INTER_FONT,
+        color: '#455a64',
+        maxWidth: 640,
+        mx: 'auto',
+        fontWeight: 500,
+        letterSpacing: 1,
+        mb: 2,
+        lineHeight: 1.4,
+      }}
+    >
+      Relax, recharge, and rejuvenate with our full service spa offerings.
+    </Typography>
+
+    <Grid
+      container
+      spacing={3}
+      justifyContent="center"
+      alignItems="stretch"
+      sx={{ fontFamily: INTER_FONT }}
+    >
+      {wellnessServices.map((service) => (
+        <Grid
+          item
+          key={service.id}
+          xs={12}
+          sm={6}
+          md={3}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          sx={{ fontFamily: INTER_FONT }}
+        >
+          <Card
+            sx={{
+              width: `${CARD_WIDTH}px`,
+              height: `${CARD_HEIGHT}px`,
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: 3,
+              boxShadow: 4,
+              background: '#fff',
+              fontFamily: INTER_FONT,
+            }}
           >
-            <Card
+            <CardMedia
+              component="img"
+              image={service.image}
+              alt={service.name}
               sx={{
-                width: `${CARD_WIDTH}px`,
-                height: `${CARD_HEIGHT}px`,
-                display: "flex",
-                flexDirection: "column",
-                borderRadius: 3,
-                boxShadow: 4,
-                background: "#fff",
+                height: IMAGE_HEIGHT,
+                objectFit: 'cover',
+                borderTopLeftRadius: 12,
+                borderTopRightRadius: 12,
                 fontFamily: INTER_FONT,
               }}
-            >
-              <CardMedia
-                component="img"
-                image={service.image}
-                alt={service.name}
+            />
+            <CardContent sx={{ flexGrow: 1, pb: 1, fontFamily: INTER_FONT }}>
+              <Typography
+                variant="h6"
+                align="center"
+                fontWeight={700}
+                sx={{ fontFamily: INTER_FONT }}
+              >
+                {service.name}
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                color="text.secondary"
+                align="center"
+                fontWeight={500}
+                sx={{ fontFamily: INTER_FONT }}
+              >
+                {service.subtitle}
+              </Typography>
+              <Typography
+                variant="body2"
+                mt={1}
+                align="center"
+                color="text.secondary"
+                sx={{ fontFamily: INTER_FONT }}
+              >
+                {service.description}
+              </Typography>
+            </CardContent>
+            <Box sx={{ p: 2, pt: 0 }}>
+              <Button
+                component={Link}
+                to="/reserve-wellness"
+                variant="contained"
+                fullWidth
                 sx={{
-                  height: IMAGE_HEIGHT,
-                  objectFit: "cover",
-                  borderTopLeftRadius: 12,
-                  borderTopRightRadius: 12,
+                  borderRadius: 2,
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  background: "#1643a1",
+                  fontFamily: INTER_FONT,
+                  ":hover": { background: "#0d1a4b" },
                 }}
-              />
-              <CardContent sx={{ flexGrow: 1, pb: 1, fontFamily: INTER_FONT }}>
-                <Typography
-                  variant="h6"
-                  align="center"
-                  fontWeight={700}
-                  sx={{ fontFamily: INTER_FONT }}
-                >
-                  {service.name}
-                </Typography>
-                <Typography
-                  variant="subtitle2"
-                  color="text.secondary"
-                  align="center"
-                  fontWeight={500}
-                  sx={{ fontFamily: INTER_FONT }}
-                >
-                  {service.subtitle}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  mt={1}
-                  align="center"
-                  color="text.secondary"
-                  sx={{ fontFamily: INTER_FONT }}
-                >
-                  {service.description}
-                </Typography>
-              </CardContent>
-              <Box sx={{ p: 2, pt: 0 }}>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  sx={{
-                    borderRadius: 2,
-                    fontWeight: 700,
-                    fontSize: "1rem",
-                    background: "#1643a1",
-                    fontFamily: INTER_FONT,
-                    ":hover": { background: "#0d1a4b" },
-                  }}
-                  onClick={() => navigate("/reserve-wellness")}
-                >
-                  BOOK NOW
-                </Button>
-              </Box>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  );
-};
-
+              >
+                BOOK NOW
+              </Button>
+            </Box>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+  </Box>
+);
 
 export default WellnessCard;

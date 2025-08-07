@@ -110,6 +110,44 @@ const PBPavilion = () => {
                 Your browser does not support the video tag.
             </video>
 
+            {/* ---- Pavilion Page Header & Subtitle (MATCH WELLNESS STYLE) ---- */}
+            <div
+                style={{
+                    width: '100%',
+                    maxWidth: 1150,
+                    margin: '56px auto 22px auto',
+                    textAlign: 'center',
+                    fontFamily: "'Inter', Arial, Helvetica, sans-serif",
+                    position: 'relative',
+                    zIndex: 2,
+                }}
+            >
+                <h1
+                    style={{
+                        fontSize: '3.2rem',
+                        fontWeight: 800,
+                        marginBottom: 8,
+                        letterSpacing: 0.5,
+                        color: '#111'
+                    }}
+                >
+                    PB Pavilion
+                </h1>
+                <div
+                    style={{
+                        fontSize: '1.35rem',
+                        fontWeight: 400,
+                        color: '#222',
+                        opacity: 0.87,
+                        margin: '0 auto',
+                        maxWidth: 730,
+                    }}
+                >
+                    Experience the heart of community and creativity. The PB Pavilion hosts unforgettable events, delicious culinary journeys, and moments you'll remember—crafted for every guest. Explore the events below to reserve your spot!
+                </div>
+            </div>
+            {/* ---- END HEADER + SUBTITLE ---- */}
+
             <div
                 style={{
                     padding: '4rem 2rem',
@@ -129,6 +167,7 @@ const PBPavilion = () => {
                         key={index}
                         event={event}
                         priceColor={priceColors[index % priceColors.length]}
+                        fontColor="#111"
                     />
                 ))}
             </div>
