@@ -10,10 +10,10 @@ import Booking from "./pages/Booking";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ViewRoomDetails from "./pages/ViewRoomDetails";
-
-// *** Import your new form components ***
+import Points from "./pages/Points";
 import WellnessReservationForm from "./components/WellnessReservationForm";
 import PBPavilionReservationForm from "./components/PBPavilionReservationForm";
+import FAQ from "./pages/faq"; 
 
 function App() {
     return (
@@ -24,17 +24,15 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/rooms" element={<Rooms />} />
                     <Route path="/wellness" element={<Wellness />} />
-                    <Route path="/pbpavilion" element={<PBPavilion />} />
+                    <Route path="/pb-pavilion" element={<PBPavilion />} />
                     <Route path="/booking" element={<Booking />} />
-                    {/* New reservation form routes */}
+                    <Route path="/sign-in" element={<SignIn />} />
+                    <Route path="/sign-up" element={<SignUp />} />
+                    <Route path="/view-room-details" element={<ViewRoomDetails />} />
+                    <Route path="/points" element={<Points />} />
                     <Route path="/reserve-wellness" element={<WellnessReservationForm />} />
                     <Route path="/reserve-pavilion" element={<PBPavilionReservationForm />} />
-                    {/* Allow both hyphen and no-hyphen for sign in/up */}
-                    <Route path="/signin" element={<SignIn />} />
-                    <Route path="/sign-in" element={<SignIn />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/sign-up" element={<SignUp />} />
-                    <Route path="/room/:id" element={<ViewRoomDetails />} />
+                    <Route path="/faq" element={<FAQ />} /> {/* ✅ NEW ROUTE */}
                 </Routes>
             </Router>
         </AuthProvider>

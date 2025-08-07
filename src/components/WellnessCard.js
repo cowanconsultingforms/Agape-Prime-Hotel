@@ -8,12 +8,13 @@ import {
   Box,
   Button
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import massageImg from '../assets/images/wellness-images/massageback.jpg';
 import headSpaImg from '../assets/images/wellness-images/headspa.png';
 import facialsImg from '../assets/images/wellness-images/facialsImg.jpg';
 import bodyTreatmentsImg from '../assets/images/wellness-images/blackrockonback.jpg';
-import scrubsImg from '../assets/images/wellness-images/facemask.jpg';
+import scrubsImg from '../assets/images/wellness-images/scrub.webp';
 import expressImg from '../assets/images/wellness-images/expressImg.jpg';
 import bathSaunaImg from '../assets/images/wellness-images/lemonsonwater.jpg';
 import agapepoolImg from "../assets/images/wellness-images/agapepool.jpg";
@@ -91,22 +92,40 @@ const WellnessCard = () => (
     margin: "0 auto",
     fontFamily: INTER_FONT,
   }}>
+    {/* Heading styled to match Rooms.js exactly, with Inter font everywhere */}
     <Typography
-      variant="h4"
+      variant="h2"
       align="center"
       gutterBottom
-      sx={{ fontFamily: INTER_FONT, fontWeight: 700 }}
+      sx={{
+        fontFamily: INTER_FONT,
+        fontWeight: 800,
+        letterSpacing: 2,
+        color: '#263238',
+        mb: 1,
+        textShadow: '0 2px 18px #fff6',
+        textAlign: 'center',
+      }}
     >
       Wellness Services
     </Typography>
     <Typography
-      variant="subtitle1"
+      variant="h5"
       align="center"
-      color="text.secondary"
-      sx={{ fontFamily: INTER_FONT }}
+      sx={{
+        fontFamily: INTER_FONT,
+        color: '#455a64',
+        maxWidth: 640,
+        mx: 'auto',
+        fontWeight: 500,
+        letterSpacing: 1,
+        mb: 2,
+        lineHeight: 1.4,
+      }}
     >
       Relax, recharge, and rejuvenate with our full service spa offerings.
     </Typography>
+
     <Grid
       container
       spacing={3}
@@ -147,6 +166,7 @@ const WellnessCard = () => (
                 objectFit: 'cover',
                 borderTopLeftRadius: 12,
                 borderTopRightRadius: 12,
+                fontFamily: INTER_FONT,
               }}
             />
             <CardContent sx={{ flexGrow: 1, pb: 1, fontFamily: INTER_FONT }}>
@@ -179,6 +199,8 @@ const WellnessCard = () => (
             </CardContent>
             <Box sx={{ p: 2, pt: 0 }}>
               <Button
+                component={Link}
+                to="/reserve-wellness"
                 variant="contained"
                 fullWidth
                 sx={{
