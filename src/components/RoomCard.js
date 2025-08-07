@@ -171,7 +171,7 @@ const villas = [
 ];
 
 const interFont = {
-  fontFamily: "'Inter', sans-serif",
+  fontFamily: '"Libre Franklin", "Helvetica Neue", Helvetica, Arial, sans-serif',
   fontWeight: 575,
   letterSpacing: "0.25px"
 };
@@ -179,17 +179,11 @@ const interFont = {
 const RoomCard = () => {
   const [openVilla, setOpenVilla] = useState(null);
 
-  const handleOpen = (villa) => {
-    setOpenVilla(villa);
-  };
-
-  const handleClose = () => {
-    setOpenVilla(null);
-  };
+  const handleOpen = (villa) => setOpenVilla(villa);
+  const handleClose = () => setOpenVilla(null);
 
   return (
     <Box sx={{ padding: 4 }}>
-      {/* Premium section header */}
       <Box sx={{ mb: 5, textAlign: 'center' }}>
         <Typography
           variant="h2"
@@ -210,7 +204,7 @@ const RoomCard = () => {
             height: 4,
             background: 'linear-gradient(90deg, #002147 0%, #005792 100%)',
             borderRadius: 2,
-            margin: '18px auto 18px auto',
+            margin: '18px auto',
             opacity: 0.6,
           }}
         />
@@ -320,7 +314,6 @@ const RoomCard = () => {
                   </ul>
                 </Box>
 
-                {/* BUTTONS ALWAYS AT THE BOTTOM */}
                 <Box sx={{ mt: 'auto', display: 'flex', justifyContent: 'space-between', pt: 2 }}>
                   <Button variant="outlined" size="small" onClick={() => handleOpen(villa)} sx={{ ...interFont }}>
                     View Details
@@ -343,11 +336,7 @@ const RoomCard = () => {
               <IconButton
                 aria-label="close"
                 onClick={handleClose}
-                sx={{
-                  position: 'absolute',
-                  right: 8,
-                  top: 8,
-                }}
+                sx={{ position: 'absolute', right: 8, top: 8 }}
               >
                 <CloseIcon />
               </IconButton>

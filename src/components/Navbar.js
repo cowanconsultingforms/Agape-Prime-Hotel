@@ -5,9 +5,9 @@ import { useAuth } from "../AuthContext";
 
 function Navbar() {
   const fontStyle = {
-    fontFamily: "'Inter', sans-serif",
-    fontWeight: 575,
-    letterSpacing: "0.25px",
+    fontFamily: '"Libre Franklin", "Helvetica Neue", Helvetica, Arial, sans-serif',
+    fontWeight: 700,
+    letterSpacing: "0.15px",
     fontSize: "1.03rem",
   };
   const navigate = useNavigate();

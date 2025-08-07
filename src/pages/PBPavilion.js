@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PavillionCard from '../components/PavillionCard';
 
 import bougie from '../assets/images/PBPavillion-Images/bougie.png';
@@ -87,6 +88,12 @@ const events = [
 ];
 
 const PBPavilion = () => {
+    const navigate = useNavigate();
+
+    const handleReserve = (eventTitle) => {
+        navigate('/reserve-pavilion', { state: { experience: eventTitle } });
+    };
+
     return (
         <div style={{ position: 'relative', minHeight: '100vh', overflowX: 'hidden' }}>
             <video
@@ -105,7 +112,6 @@ const PBPavilion = () => {
                 }}
             >
                 <source src="/videos/sunsetbluedark.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
             </video>
 
             <div
@@ -127,6 +133,7 @@ const PBPavilion = () => {
                         key={index}
                         event={event}
                         priceColor={priceColors[index % priceColors.length]}
+                        onReserve={() => handleReserve(event.title)}
                     />
                 ))}
             </div>
