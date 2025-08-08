@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ReservationForm.css";
+import "../css/ReservationForm.css";
 import { collection, getDocs} from "firebase/firestore";
 import { db } from '../config/firebase';
 

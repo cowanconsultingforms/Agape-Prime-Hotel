@@ -9,7 +9,6 @@ import PBPavilion from "./pages/PBPavilion";
 import Booking from "./pages/Booking";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import ViewRoomDetails from "./pages/ViewRoomDetails";
 import Points from "./pages/Points";
 
 // *** Import your new form components ***

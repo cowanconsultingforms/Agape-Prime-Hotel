@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../config/firebase';
 import { collection, getDocs, query, where, doc, updateDoc, getDoc} from 'firebase/firestore';
 import { addDoc} from 'firebase/firestore';
-import './ReservationForm.css';
+import '../css/ReservationForm.css';
 import coralImage from "../assets/images/coralpicAGAPE.jpg";
 
 export default function ReservationForm() {

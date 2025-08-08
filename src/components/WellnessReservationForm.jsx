@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ReservationForm.css";
+import "../css/ReservationForm.css";
 
 const wellnessOptions = [
     "Massages",

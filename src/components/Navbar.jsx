@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/images/agapelogo.png";
+import logo from "../assets/images/agapeLOGO.png";
 import { useAuth } from "../AuthContext";
 
 function Navbar() {
@@ -23,7 +23,7 @@ function Navbar() {
       <div className="container-fluid">
          <a class="navbar-brand" href="#">
            <img
-          src={image}
+          src={logo}
           alt="Agape Prime Hotel Logo"
           onClick={() => navigate("/")}
           style={{
@@ -96,18 +96,19 @@ function Navbar() {
               </ul>
             </li>
             {/* END BOOKING DROPDOWN */}
-
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="https://www.agapeprimehotel.com/WP/about/"
-                style={fontStyle}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                About Us
-              </Link>
-            </li>
+         {/* 
+<li className="nav-item">
+  <Link
+    className="nav-link"
+    to="https://www.agapeprimehotel.com/WP/about/"
+    style={fontStyle}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    About Us
+  </Link>
+</li> 
+*/}
             <li className="nav-item">
               <Link
                 className="nav-link"
