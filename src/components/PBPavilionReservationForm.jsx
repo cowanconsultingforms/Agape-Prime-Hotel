@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "../css/ReservationForm.css";
-import { collection, getDocs} from "firebase/firestore";
-import { db } from '../config/firebase';
 
 const pavilionOptions = [
     { label: "Legacy Lounge: Baldwin & Bubbles — $100+ PER PERSON", value: "Legacy Lounge: Baldwin & Bubbles", guests: 6},
@@ -12,22 +11,18 @@ const pavilionOptions = [
     { label: "Liberation Fire: Maroon Feast — $160+ PER PERSON", value: "Liberation Fire: Maroon Feast" },
 ];
 
-
+const minGuestsByExperience = {
+    "Legacy Lounge: Baldwin & Bubbles": 6,
+    "Civic Spirit: Hamilton Pour": 6,
+    "Island Revival: Garifuna Gold": 6,
+    "Prime Roots: Agape Garden Table": 4,
+    "The American Dream: Tubman": 8,
+    "Liberation Fire: Maroon Feast": 10,
+};
 
 export default function PBPavilionReservationForm() {
-
-
-
-  useEffect(() => {
-  const fetchExperiences = async () => {
-    const querySnapshot = await getDocs(collection(db, "pavilionExperiences"));
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-    });
-  };
-
-  fetchExperiences(); // Call the async function
-}, []);
+    const location = useLocation();
+    const passedExperience = location.state?.experience || "";
 
     const [formData, setFormData] = useState({
         name: "",
@@ -39,11 +34,17 @@ export default function PBPavilionReservationForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState(null);
 
+    useEffect(() => {
+        if (passedExperience) {
+            setFormData((prev) => ({ ...prev, experience: passedExperience }));
+        }
+    }, [passedExperience]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
-            [name]: value,
+            [name]: name === "guests" ? parseInt(value) : value,
         }));
     };
 
@@ -52,12 +53,24 @@ export default function PBPavilionReservationForm() {
         setIsSubmitting(true);
         setSubmitMessage(null);
 
+        const requiredMin = minGuestsByExperience[formData.experience] || 1;
+        if (formData.guests < requiredMin) {
+            setSubmitMessage({
+                type: "error",
+                text: `Minimum of ${requiredMin} guests required for this experience.`,
+            });
+            setIsSubmitting(false);
+            return;
+        }
+
         setTimeout(() => {
             setSubmitMessage({ type: "success", text: "PB Pavilion reservation submitted!" });
             setFormData({ name: "", date: "", guests: 2, experience: "", note: "" });
             setIsSubmitting(false);
         }, 1200);
     };
+
+    const currentMin = minGuestsByExperience[formData.experience] || 1;
 
     return (
         <div style={{ position: "relative", minHeight: "100vh" }}>
@@ -104,12 +117,12 @@ export default function PBPavilionReservationForm() {
                         required
                     />
 
-                    <label htmlFor="guests">Number of Guests</label>
+                    <label htmlFor="guests">Number of Guests (min {currentMin})</label>
                     <input
                         id="guests"
                         name="guests"
                         type="number"
-                        min={1}
+                        min={currentMin}
                         max={20}
                         value={formData.guests}
                         onChange={handleChange}
@@ -146,6 +159,7 @@ export default function PBPavilionReservationForm() {
                         {isSubmitting ? "Submitting..." : "Reserve Now"}
                     </button>
                 </form>
+
                 {submitMessage && (
                     <div style={{
                         marginTop: 12,

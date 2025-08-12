@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PavillionCard from '../components/PavillionCard';
 
 import bougie from '../assets/images/PBPavillion-Images/bougie.png';
@@ -89,6 +90,12 @@ const events = [
 ];
 
 const PBPavilion = () => {
+    const navigate = useNavigate();
+
+    const handleReserve = (eventTitle) => {
+        navigate('/reserve-pavilion', { state: { experience: eventTitle } });
+    };
+
     return (
         <Box style={{ position: 'relative', minHeight: '100vh', overflowX: 'hidden' }}>
             <video
@@ -107,7 +114,6 @@ const PBPavilion = () => {
                 }}
             >
                 <source src="/videos/sunsetbluedark.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
             </video>
 
             {/* ---- Pavilion Page Header & Subtitle (MATCH WELLNESS STYLE) ---- */}
@@ -124,7 +130,7 @@ const PBPavilion = () => {
             >
                 <h1
                     style={{
-                        fontSize: '3.2rem',
+                        fontSize: 'clamp(1.75rem, 3.5vw, 3.2rem)',
                         fontWeight: 800,
                         marginBottom: 8,
                         letterSpacing: 0.5,
@@ -150,16 +156,16 @@ const PBPavilion = () => {
 
             <div
                 style={{
-                    padding: '4rem 2rem',
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '1.5rem',
-                    justifyItems: 'center',
-                    alignItems: 'stretch',
-                    position: 'relative',
-                    zIndex: 1,
-                    maxWidth: '1350px',
-                    margin: '0 auto'
+                        padding: '3rem 1rem',
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        gap: '1.25rem',
+                        justifyItems: 'center',
+                        alignItems: 'stretch',
+                        position: 'relative',
+                        zIndex: 1,
+                        maxWidth: '1200px',
+                        margin: '0 auto'
                 }}
             >
                 {events.map((event, index) => (
